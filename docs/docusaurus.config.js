@@ -11,17 +11,20 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://gabi-barretto.github.io', // Corrigido para apenas o domínio principal
+  url: 'https://Gabi-Barretto.github.io',
 
   // Set the /<baseUrl>/ pathname under which your site is served
-  baseUrl: '/op03/', // Caminho do repositório no GitHub Pages
+  baseUrl: '/OP03/',
+
+  organizationName: "Gabi-Barretto", // Nome do seu GitHub
+  projectName: "OP03", // Nome do repositório
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
-    defaultLocale: 'pt-br',
-    locales: ['pt-br'],
+    defaultLocale: 'pt-BR',
+    locales: ['pt-BR'],
   },
 
   presets: [
@@ -29,14 +32,13 @@ const config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.js',
-          routeBasePath: '/',
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: require.resolve('./sidebars.js'),
+          routeBasePath: '/', // Documentação na raiz do site
+          editUrl: 'https://github.com/Gabi-Barretto/OP03/edit/main/',
         },
-        blog: false, // Blog removido
+        blog: false, // Blog desativado
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: require.resolve('./src/css/custom.css'),
         },
       },
     ],
@@ -53,52 +55,14 @@ const config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'tutorialSidebar', // ID da sidebar, definido no `sidebars.js`
           position: 'left',
           label: 'Documentação',
         },
       ],
     },
     footer: {
-      style: 'dark',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Tutorial',
-              to: '/docs/intro',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Gabi-Barretto. Built with Docusaurus.`,
     },
     prism: {
       theme: prismThemes.github,
