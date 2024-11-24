@@ -3,7 +3,7 @@
 Bem-vindo ao repositório oficial do **Guia Virtual 360° do Campus**!  
 Aqui você pode explorar, contribuir e acompanhar o desenvolvimento do nosso projeto tecnológico que permite **navegar virtualmente pelo campus universitário** de forma imersiva e interativa! 🏫✨
 
-<a href="https://gabi-barretto.github.io/OP03/" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">📚 Documentação 📚</a>
+<a href="https://gabi-barretto.github.io/OP03/" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; border-radius: 5px;">Documentação</a>
 
 ---
 
