@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>INTELI - VIRTUAL</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <!-- Cena principal -->
+    <a-scene>
+      <!-- Imagem 360 inicial -->
+      <a-sky id="sky" src="./images/1.jpg"></a-sky>
+
+      <!-- Setas para navegação (Norte, Sul, Leste, Oeste) -->
+      <a-entity
+        gltf-model="./images/Arrow.glb"
+        position="-5 -1.5 0"
+        scale="0.5 0.5 0.5"
+        rotation="-30 -50 -20"
+        class="clickable"
+        onclick="mudarCena('./images/2.jpg')"
+      ></a-entity>
+
+      <!-- Cursor para interação (necessário em VR) -->
+      <a-entity position="0 1.6 0" camera look-controls>
+        <a-cursor></a-cursor>
+      </a-entity>
+    </a-scene>
+
+    <script>
+      // Função para mudar a imagem 360
+      function mudarCena(imagem) {
+        document.getElementById("sky").setAttribute("src", imagem);
+      }
+    </script>
+  </body>
+</html>
