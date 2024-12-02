@@ -3,28 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <title>INTELI - VIRTUAL</title>
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
   </head>
   <body>
     <!-- Cena principal -->
-    <a-scene>
+    <a-scene inspector>
       <!-- Imagem 360 inicial -->
       <a-sky id="sky" src="./images/1.jpg"></a-sky>
 
-      <!-- Setas para navegação (Norte, Sul, Leste, Oeste) -->
+      <!-- Seta de navegação sem atributos estáticos de posição e rotação -->
       <a-entity
+        id="seta"
         gltf-model="./images/Arrow.glb"
-        position="-5 -1.5 0"
-        scale="0.5 0.5 0.5"
-        rotation="-30 -50 -20"
         class="clickable"
-        onclick="mudarCena('./images/2.jpg')"
-      ></a-entity>
-
+        ></a-entity>
+        
       <!-- Cursor para interação (necessário em VR) -->
       <a-entity position="0 1.6 0" camera look-controls>
         <a-cursor></a-cursor>
@@ -32,10 +26,58 @@
     </a-scene>
 
     <script>
-      // Função para mudar a imagem 360
-      function mudarCena(imagem) {
-        document.getElementById("sky").setAttribute("src", imagem);
+      // Configurações das setas para cada imagem
+      const configuracoesSeta = {
+        "1.jpg": {
+          position: "-12.713 -3.076 0.000",
+          rotation: "-13.815 -60.468 -14.16",
+          destino: "./images/2.jpg",
+        },
+        "2.jpg": {
+          position: "-0.768 -1.500 -11.638",
+          rotation: "-15.98 -178.7 -6.24",
+          destino: "./images/3.jpg",
+        },
+        "3.jpg": {
+          position: "-11.235 -3.088 8.827",
+          rotation: "-15.46 -2.143 -17.59",
+          destino: "./images/4.jpg",
+        },
+      };
+
+      // Função para atualizar a seta com base na imagem atual
+      function atualizarSeta(imagem) {
+        const seta = document.getElementById("seta");
+        const nomeImagem = imagem.split("/").pop();
+        const configuracao = configuracoesSeta[nomeImagem];
+
+        // Verifica se há configurações para a imagem atual
+        if (configuracao) {
+          seta.setAttribute("position", configuracao.position);
+          seta.setAttribute("rotation", configuracao.rotation);
+          seta.setAttribute("onclick", `mudarCena('${configuracao.destino}')`);
+          seta.setAttribute("visible", "true");
+        } else {
+          // Esconde a seta se não houver configurações
+          seta.setAttribute("visible", "false");
+        }
       }
+
+      // // Função para mudar a imagem e atualizar a posição da seta
+      function mudarCena(imagem) {
+        const sky = document.getElementById("sky");
+
+        // Atualiza a imagem exibida
+        sky.setAttribute("src", imagem);
+
+        // Atualiza a seta com a nova configuração
+        atualizarSeta(imagem);
+      }
+
+      // Inicializa a seta com a configuração da imagem inicial
+      window.onload = function () {
+        atualizarSeta("./images/1.jpg");
+      };
     </script>
   </body>
 </html>
