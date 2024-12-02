@@ -1,115 +1,18 @@
-# 🌍 **Guia Virtual 360° do Campus Inteli** 🎓
+## Mood Board
 
-Bem-vindo ao repositório oficial do **Guia Virtual 360° do Campus**!  
-Aqui você pode explorar, contribuir e acompanhar o desenvolvimento do nosso projeto tecnológico que permite **navegar virtualmente pelo campus universitário** de forma imersiva e interativa! 🏫✨
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/beb5f75a-58b3-40b0-b742-b9213129df9b">
 
-[![Documentação](https://img.shields.io/badge/Documentação-Acesse%20Aqui-brightgreen)](https://gabi-barretto.github.io/OP03/)
+Nosso Mood Board foi criado para capturar a essência visual e emocional que queremos transmitir com o projeto da turda virtual. A ideia principal é trazer uma atmosfera imersiva e altamente tecnológica, inspirada no espírito da Intel. As imagens escolhidas refletem ambientes futuristas, como laboratórios e centros de inovação, com paletas de cores que combinam tons de azul, cinza e branco, criando uma sensação de modernidade, clareza e funcionalidade.
 
----
+As inspirações guiam a criação dos assets e elementos visuais do projeto, como cenários, indicadores e interface do usuário. Buscamos referências em HUDs futuristas, texturas translúcidas e formas geométricas minimalistas, que reforçam a ideia de fluidez e alta tecnologia. As fontes, como Roboto e Exo, foram selecionadas por sua legibilidade e design contemporâneo, alinhando-se ao tom moderno do projeto.
 
-## 🎯 **Objetivo do Projeto**
+Em resumo, o mood board serve como uma bússola criativa, conectando todas as escolhas visuais à experiência que queremos proporcionar. Ele traduz nosso objetivo de envolver o jogador em um ambiente inovador e intuitivo, onde cada detalhe reflete a identidade tecnológica e futurista que buscamos criar.
 
-Criar uma experiência **imersiva** e **fácil de usar** para que alunos, professores e visitantes possam explorar o campus e suas instalações, bem como os projetos desenvolvidos por cada curso e seus parceiros, tudo de forma digital e integrada!
 
----
+## Cenário e Ambientação
 
-## 🌟 **Destaques**
+<img width="899" alt="image" src="https://github.com/user-attachments/assets/ef000920-a3a4-461c-bbd3-cb0df1b1560b">
 
-✨ **Visita 360°**: Caminhe pelo campus virtualmente, explorando todos os ambientes com imagens de alta qualidade.
+Utilizamos uma planta digital da faculdade para mapear pontos estratégicos de interação, onde o usuário pode visualizar ambientes em fotos 360° e escolher diferentes caminhos para explorar o campus. A experiência foi projetada para ser intuitiva e cativante, proporcionando uma visão detalhada da infraestrutura da faculdade.
 
-📌 **Pontos de Interesse (POIs)**: Descubra informações sobre prédios, laboratórios e áreas comuns com apenas um clique.
-
-📱 **Responsivo**: Totalmente acessível em **desktop**, **tablet** e **smartphones**.
-
-🚀 **Tecnologia Avançada**: Utilizamos **WebGL**, **React** e bibliotecas modernas para garantir desempenho e interatividade.
-
----
-
-## 🛠️ **Tecnologias Utilizadas**
-
-| Tecnologia     | Descrição                                    |
-|----------------|----------------------------------------------|
-| 🖥️ **React**   | Frontend moderno para criar interfaces ricas |
-| 🌐 **Three.js**| Para renderizar gráficos 3D na web           |
-| 🗄️ **Firebase**| Backend e banco de dados                    |
-| 📷 **Panorama.js** | Navegação 360°                           |
-
----
-
-## 🌐 **Demo**
-
-✨ **[Acesse a demonstração online aqui](https://www.nomedosite.com)** ✨  
-
-Veja como é fácil navegar pelo campus sem sair de casa! 🏠➡️🏫
-
----
-
-## 📸 **Preview**
-
-Confira o que você vai encontrar:  
-
-![Captura de tela da navegação 360°]()
-
----
-
-## 🚀 **Como Rodar o Projeto Localmente**
-
-Siga os passos abaixo para rodar o projeto em sua máquina:
-
-### Pré-requisitos (Exemplo)
-
-- Node.js e npm instalados
-- Um navegador moderno (Chrome ou Firefox)
-
-### Passos (Exemplo)
-
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/Gabi-Barretto/OP03.git
-   cd src
-   ```
-
-2. Instale as dependências:
-   ```bash
-   npm install
-   ```
-
-3. Inicie o servidor local:
-   ```bash
-   npm start
-   ```
-
-4. Acesse o projeto no navegador:
-   ```
-   http://localhost:3000
-   ```
-
----
-
-## 📣 **Nosso Time**
-
-🎓 Este projeto é desenvolvido por um grupo apaixonado de alunos e professores do nosso campus! 💪
-
-| Nome           | Função              |
-|-----------------|---------------------|
-| Gabriela Dias | Developer |
-| João Pedro Alcaraz | Developer |
-| Stefano Tinelli | Developer |
-| Luis Augusto | Developer |
-
----
-
-## 📬 **Contato**
-
-📧 Email: `inteli@inteli.edu.br`  
-🌐 Site oficial: **[www.inteli.edu.br](https://www.inteli.edu.br/)**
-
----
-
-> **Nota**: Este projeto é uma iniciativa acadêmica e está em constante desenvolvimento. Contribuições e feedbacks são sempre bem-vindos! 💡
-
-<p align="center">
-<a href= "https://www.inteli.edu.br/"><img src="https://github.com/Inteli-College/2024-T0002-EC09-G03/blob/main/docs/static/img/logo_inteli.png" alt="Inteli - Instituto de Tecnologia e Liderança" width="300px"></a>
-</p>
-
----
+Para aumentar o realismo, integramos sons ambientes cuidadosamente selecionados. Na área externa, são utilizados sons de natureza, como o canto de pássaros e o som do vento, criando uma atmosfera tranquila e acolhedora. Nos espaços internos, como salas de aula e laboratórios, inserimos sons de teclados e ruídos típicos, simulando as atividades cotidianas do local. Esses elementos sonoros complementam as imagens imersivas, oferecendo uma experiência sensorial completa e envolvente.
