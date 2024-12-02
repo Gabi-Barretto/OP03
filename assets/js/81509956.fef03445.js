@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[386],{8801:e=>{e.exports=JSON.parse('{"categoryGeneratedIndex":{"title":"Semana 1","description":"Proposta de Solu\xe7\xe3o","slug":"/category/semana-1","permalink":"/OP03/category/semana-1","sidebar":"tutorialSidebar","navigation":{"next":{"title":"Introdu\xe7\xe3o","permalink":"/OP03/"}}}}')}}]);
