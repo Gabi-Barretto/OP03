@@ -1,3 +1,5 @@
+# Documentação semana 2
+
 ## Mood Board
 
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/beb5f75a-58b3-40b0-b742-b9213129df9b">
@@ -16,3 +18,6 @@ Em resumo, o mood board serve como uma bússola criativa, conectando todas as es
 Utilizamos uma planta digital da faculdade para mapear pontos estratégicos de interação, onde o usuário pode visualizar ambientes em fotos 360° e escolher diferentes caminhos para explorar o campus. A experiência foi projetada para ser intuitiva e cativante, proporcionando uma visão detalhada da infraestrutura da faculdade.
 
 Para aumentar o realismo, integramos sons ambientes cuidadosamente selecionados. Na área externa, são utilizados sons de natureza, como o canto de pássaros e o som do vento, criando uma atmosfera tranquila e acolhedora. Nos espaços internos, como salas de aula e laboratórios, inserimos sons de teclados e ruídos típicos, simulando as atividades cotidianas do local. Esses elementos sonoros complementam as imagens imersivas, oferecendo uma experiência sensorial completa e envolvente.
+
+## Assets
+<img width="724" alt="image" src="https://github.com/user-attachments/assets/44682fc9-be66-4bbc-a35d-8cf6d9ff1bd5">
