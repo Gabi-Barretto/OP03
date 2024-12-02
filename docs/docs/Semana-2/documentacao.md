@@ -10,6 +10,8 @@ As inspirações guiam a criação dos assets e elementos visuais do projeto, co
 
 Em resumo, o mood board serve como uma bússola criativa, conectando todas as escolhas visuais à experiência que queremos proporcionar. Ele traduz nosso objetivo de envolver o jogador em um ambiente inovador e intuitivo, onde cada detalhe reflete a identidade tecnológica e futurista que buscamos criar.
 
+## Assets
+<img width="692" alt="image" src="https://github.com/user-attachments/assets/9f18b3bc-3ec2-45b9-ad16-3f30fe4735c5">
 
 ## Cenário e Ambientação
 
@@ -19,6 +21,8 @@ Utilizamos uma planta digital da faculdade para mapear pontos estratégicos de i
 
 Para aumentar o realismo, integramos sons ambientes cuidadosamente selecionados. Na área externa, são utilizados sons de natureza, como o canto de pássaros e o som do vento, criando uma atmosfera tranquila e acolhedora. Nos espaços internos, como salas de aula e laboratórios, inserimos sons de teclados e ruídos típicos, simulando as atividades cotidianas do local. Esses elementos sonoros complementam as imagens imersivas, oferecendo uma experiência sensorial completa e envolvente.
 
-## Assets
-<img width="692" alt="image" src="https://github.com/user-attachments/assets/9f18b3bc-3ec2-45b9-ad16-3f30fe4735c5">
 
+## Imagens do Protótipo
+
+<img width="359" alt="image" src="https://github.com/user-attachments/assets/abbfd65a-e8ae-4e49-9b24-474b45767776">
+<img width="308" alt="image" src="https://github.com/user-attachments/assets/97f17f33-1e4b-4e50-9462-49d499d14146">
