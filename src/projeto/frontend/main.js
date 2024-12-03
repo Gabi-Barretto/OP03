@@ -1,38 +1,5 @@
 import { showModal, hideModal } from "./modules/modal.js";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const sky = document.getElementById('sky');
-
-  // Fetch the first image from the backend
-  fetch('http://localhost:5000/api/images') // Ajuste o endpoint se necessário
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((images) => {
-      if (images && images.length > 0) {
-        const firstImage = images[0]; // Obter a primeira imagem
-        console.log('Loading image:', firstImage.name);
-
-        // Verificar se o dado retornado é Base64
-        const imageSrc = firstImage.base64.startsWith('data:image/')
-          ? firstImage.base64
-          : `data:image/png;base64,${firstImage.base64}`;
-
-        // Definir o atributo 'src' no elemento sky
-        sky.setAttribute('src', imageSrc);
-      } else {
-        console.error('No images found in the database');
-      }
-    })
-    .catch((error) => {
-      console.error('Error fetching images:', error);
-    });
-});
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const database = {
     "block-1": {
