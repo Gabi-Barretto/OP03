@@ -1,7 +1,8 @@
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+
 const express = require('express');
 const fs = require('fs');
-const path = require('path');
 const { Pool } = require('pg');
 const cliProgress = require('cli-progress');
 
@@ -99,6 +100,7 @@ app.get('/api/images', async (req, res) => {
 
 
 const PORT = process.env.PORT || 5000;
+
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
   await syncImages();
