@@ -9,9 +9,15 @@
   <body>
     <!-- Cena principal -->
     <a-scene inspector>
-      <!-- Imagem 360 inicial -->
-      <a-sky id="sky" src="./images/1.jpg"></a-sky>
-
+        <!-- Imagem 360 inicial -->
+        <a-sky
+        id="sky"
+        src="./images/1.jpg"
+        material="shader: standard"
+        animation__fadeout="property: material.color; to: #000; startEvents: fadeout; dur: 500"
+        animation__fadein="property: material.color; to: #FFF; startEvents: fadein; dur: 500"
+      ></a-sky>
+      
       <!-- Seta de navegação sem atributos estáticos de posição e rotação -->
       <a-entity
         id="seta"
@@ -63,23 +69,41 @@
         }
       }
 
-      // // Função para mudar a imagem e atualizar a posição da seta
       function mudarCena(imagem) {
         const sky = document.getElementById("sky");
+        const overlay = document.getElementById("overlay");
 
-        // Atualiza a imagem exibida
-        sky.setAttribute("src", imagem);
-        
-        // Aguarda um pequeno tempo para a troca da imagem antes de reconfigurar a seta
+        // Aumenta o desfoque
+        overlay.style.backdropFilter = "blur(10px)";
+
+        // Aguarda o desfoque antes de trocar a imagem
         setTimeout(() => {
+          sky.setAttribute("src", imagem); // Troca a imagem
+          overlay.style.backdropFilter = "blur(0px)"; // Remove o desfoque
           atualizarSeta(imagem);
-        }, 100); // Pequeno atraso para suavizar a transição
+        }, 500); // Sincronizar com a duração da transição
       }
+
+
 
       // Inicializa a seta com a configuração da imagem inicial
       window.onload = function () {
         atualizarSeta("./images/1.jpg");
       };
     </script>
+    <style>
+      #overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(0px);
+        transition: backdrop-filter 0.5s ease;
+        pointer-events: none;
+      }
+    </style>
+    <div id="overlay"></div>
+    
   </body>
 </html>
