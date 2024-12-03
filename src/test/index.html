@@ -69,9 +69,11 @@
 
         // Atualiza a imagem exibida
         sky.setAttribute("src", imagem);
-
-        // Atualiza a seta com a nova configuração
-        atualizarSeta(imagem);
+        
+        // Aguarda um pequeno tempo para a troca da imagem antes de reconfigurar a seta
+        setTimeout(() => {
+          atualizarSeta(imagem);
+        }, 100); // Pequeno atraso para suavizar a transição
       }
 
       // Inicializa a seta com a configuração da imagem inicial
