@@ -31,3 +31,5 @@ build/
 frontend/scripts/*.map
 
 package-lock.json
+
+.env
