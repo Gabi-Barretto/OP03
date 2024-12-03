@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>INTELI - VIRTUAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="./scripts/main.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a-scene inspector>
+      <a-sky id="sky" src="/images/1.jpg"></a-sky>
+
+      <!-- Bloco interativo -->
+      <a-box
+        id="block-1"
+        position="-2 1.5 -4"
+        color="#FF5733"
+        class="clickable"
+      ></a-box>
+
+      <!-- Modal -->
+      <a-entity id="modal" visible="false" position="0 1.6 -3">
+        <a-plane color="#fff" width="2" height="1.5" material="shader: flat">
+          <a-text
+            id="modal-title"
+            value=""
+            position="0 0.5 0.1"
+            align="center"
+            color="#000"
+          ></a-text>
+          <a-text
+            id="modal-text"
+            value=""
+            position="0 -0.1 0.1"
+            align="center"
+            color="#000"
+            wrap-count="30"
+          ></a-text>
+          <a-image
+            id="modal-image"
+            position="0 -0.6 0.1"
+            width="1.5"
+            height="0.6"
+          ></a-image>
+        </a-plane>
+      </a-entity>
+
+      <a-entity position="0 1.6 0" camera look-controls>
+        <a-cursor></a-cursor>
+      </a-entity>
+    </a-scene>
+  </body>
+</html>
