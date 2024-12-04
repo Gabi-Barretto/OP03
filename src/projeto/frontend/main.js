@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const firstImage = images[0];
         if (firstImage && firstImage.base64) {
-          // Check MIME type and prepend if missing
+          // Check and prepend MIME type if missing
           let base64 = firstImage.base64;
           if (!base64.startsWith("data:image/")) {
             console.warn("MIME type missing from Base64 string. Prepending...");
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           console.log("Blob URL:", blobURL);
 
-          // Add Blob URL for debugging (optional)
+          // Test: Log Blob URL
           const testImg = document.createElement("img");
           testImg.src = blobURL;
           testImg.style.width = "200px";
