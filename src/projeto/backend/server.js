@@ -1,18 +1,30 @@
-require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
+const { createClient } = require('@supabase/supabase-js');
+const { S3Client, PutObjectCommand, ListObjectsV2Command } = require('@aws-sdk/client-s3');
 const cliProgress = require('cli-progress');
-const cors = require('cors'); // Import CORS middleware
+const cors = require('cors');
+require('dotenv').config({ path: '.env' });
+
+let mime; // Declare MIME globally
+(async () => {
+  mime = await import('mime'); // Dynamically import MIME
+  mime = mime.default; // Use the default export from the ESM module
+  console.log('MIME module loaded');
+})();
+
+// Log environment variables for debugging
+console.log('SUPABASE_HOST:', process.env.SUPABASE_HOST);
+console.log('SUPABASE_DB_URL:', process.env.SUPABASE_DB_URL);
+console.log('SUPABASE_BUCKET:', process.env.SUPABASE_BUCKET);
+console.log('SUPABASE_S3_ENDPOINT:', process.env.SUPABASE_S3_ENDPOINT);
+console.log('SUPABASE_S3_REGION:', process.env.SUPABASE_S3_REGION);
 
 // Initialize Express
 const app = express();
-
-// Enable CORS for all origins
-app.use(cors()); 
-
-// Middleware
+app.use(cors());
 app.use(express.json());
 
 // PostgreSQL Connection
@@ -24,19 +36,77 @@ pool.on('connect', () => {
   console.log('Connected to the database.');
 });
 
-// Function to insert image into the database
-const insertImage = async (name, base64) => {
-  try {
-    await pool.query(
-      'INSERT INTO private.images (name, base64) VALUES ($1, $2)',
-      [name, base64]
-    );
-  } catch (error) {
-    console.error('Error inserting image:', error);
+// Initialize Supabase client
+const supabase = createClient(
+  `https://${process.env.SUPABASE_HOST}`,
+  process.env.SUPABASE_KEY
+);
+
+// Initialize S3 client for S3-compatible API
+const s3Client = new S3Client({
+  region: process.env.SUPABASE_S3_REGION,
+  endpoint: process.env.SUPABASE_S3_ENDPOINT,
+  credentials: {
+    accessKeyId: process.env.SUPABASE_S3_ACCESS_KEY,
+    secretAccessKey: process.env.SUPABASE_S3_SECRET_KEY,
+  },
+  forcePathStyle: true,
+});
+
+// Function to determine fallback MIME type
+const getFallbackMimeType = (fileName) => {
+  const extension = path.extname(fileName).toLowerCase();
+  switch (extension) {
+    case '.jpg':
+    case '.jpeg':
+      return 'image/jpeg';
+    case '.png':
+      return 'image/png';
+    case '.gif':
+      return 'image/gif';
+    case '.webp':
+      return 'image/webp';
+    default:
+      return 'application/octet-stream';
   }
 };
 
-// Function to sync images with the database
+// Function to upload an image to Supabase S3-compatible storage
+const uploadToSupabaseS3 = async (bucket, fileName, filePath) => {
+  try {
+    const fileStream = fs.createReadStream(filePath);
+
+    // Wait for MIME module to load
+    while (!mime) {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+
+    let contentType = mime.getType(filePath);
+
+    if (!contentType) {
+      contentType = getFallbackMimeType(fileName);
+      console.log(`Fallback MIME type for ${fileName}: ${contentType}`);
+    }
+
+    const params = {
+      Bucket: bucket,
+      Key: fileName,
+      Body: fileStream,
+      ContentType: contentType,
+    };
+
+    const command = new PutObjectCommand(params);
+    const response = await s3Client.send(command);
+
+    console.log(`Uploaded to Supabase S3: ${fileName}`);
+    return `https://${process.env.SUPABASE_S3_ENDPOINT}/${bucket}/${fileName}`;
+  } catch (err) {
+    console.error(`Failed to upload ${fileName} to Supabase S3:`, err);
+    return null;
+  }
+};
+
+// Function to sync images with Supabase storage
 const syncImages = async () => {
   try {
     const imagesDir = path.join(__dirname, '../public/images');
@@ -44,7 +114,6 @@ const syncImages = async () => {
 
     console.log('Scanning images folder...');
 
-    // Create a progress bar
     const progressBar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
     progressBar.start(files.length, 0);
 
@@ -57,45 +126,44 @@ const syncImages = async () => {
         const imageName = file;
 
         try {
-          // Check if the image already exists in the database
-          const res = await pool.query('SELECT * FROM private.images WHERE name = $1', [imageName]);
+          const bucket = process.env.SUPABASE_BUCKET;
+          const filePathInBucket = await uploadToSupabaseS3(bucket, imageName, filePath);
 
-          if (res.rowCount === 0) {
-            // Convert the image to Base64
-            const base64 = fs.readFileSync(filePath, { encoding: 'base64' });
-            const mimeType = `image/${path.extname(file).slice(1)}`; // e.g., image/jpeg
-            const base64Data = `data:${mimeType};base64,${base64}`;
-
-            // Insert image into the database
-            await insertImage(imageName, base64Data);
-
+          if (filePathInBucket) {
             console.log(`Uploaded: ${imageName}`);
           } else {
-            console.log(`Already in database: ${imageName}`);
+            console.log(`Failed to upload: ${imageName}`);
           }
-        } catch (queryError) {
-          console.error(`Error processing image ${imageName}:`, queryError);
+        } catch (error) {
+          console.error(`Error processing image ${imageName}:`, error);
         }
       }
 
-      // Update the progress bar
       progressBar.update(i + 1);
     }
 
-    // Stop the progress bar
     progressBar.stop();
-
     console.log('Image sync complete.');
   } catch (error) {
     console.error('Error syncing images:', error);
   }
 };
 
-// Routes
+// API Route to fetch images
 app.get('/api/images', async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM private.images');
-    res.json(result.rows);
+    const bucket = process.env.SUPABASE_BUCKET;
+    const params = { Bucket: bucket };
+
+    const command = new ListObjectsV2Command(params);
+    const { Contents: files } = await s3Client.send(command);
+
+    const images = files.map((file) => ({
+      name: file.Key,
+      url: `${process.env.SUPABASE_S3_ENDPOINT}/${bucket}/${file.Key}`,
+    }));
+
+    res.json(images);
   } catch (error) {
     console.error('Error fetching images:', error);
     res.status(500).json({ error: 'Failed to fetch images' });
