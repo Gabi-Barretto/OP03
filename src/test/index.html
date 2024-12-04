@@ -9,8 +9,9 @@
   <body>
     <!-- Cena principal -->
     <a-scene inspector>
-        <!-- Imagem 360 inicial -->
-        <a-sky
+      
+      <!-- Imagem 360 inicial -->
+      <a-sky
         id="sky"
         src="./images/1.jpg"
         material="shader: standard"
@@ -23,7 +24,7 @@
         id="seta"
         gltf-model="./images/Arrow.glb"
         class="clickable"
-        ></a-entity>
+      ></a-entity>
         
       <!-- Cursor para interação (necessário em VR) -->
       <a-entity position="0 1.6 0" camera look-controls>
