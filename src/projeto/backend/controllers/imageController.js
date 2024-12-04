@@ -8,7 +8,19 @@ const syncImages = async () => {
     const imagesDir = path.join(__dirname, '../../public/images');
     const files = fs.readdirSync(imagesDir);
 
-    console.log('Scanning images folder...');
+    console.log(` 
+        .-._   _ _ _ _ _ _ _ _
+.-''-.__.-'00  '-' ' ' ' ' ' ' ' '-.
+'.___ '    .   .--_'-' '-' '-' _'-' '._
+V: V 'vv-'   '_   '.       .'  _..' '.'.
+'=.____.=_.--'   :_.__.__:_   '.   : :
+        (((____.-'        '-.  /   : :
+                          (((-'\ .' /
+                        _____..'  .'
+                       '-._____.-'   
+Scanning images folder... 
+`);
+
 
     const progressBar = createProgressBar(files.length);
 
