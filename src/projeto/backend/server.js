@@ -1,17 +1,21 @@
-const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-
+require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
+const path = require('path');
 const { Pool } = require('pg');
 const cliProgress = require('cli-progress');
+const cors = require('cors'); // Import CORS middleware
 
-
+// Initialize Express
 const app = express();
 
+// Enable CORS for all origins
+app.use(cors()); 
 
+// Middleware
 app.use(express.json());
 
+// PostgreSQL Connection
 const pool = new Pool({
   connectionString: process.env.SUPABASE_DB_URL,
 });
@@ -20,7 +24,7 @@ pool.on('connect', () => {
   console.log('Connected to the database.');
 });
 
-
+// Function to insert image into the database
 const insertImage = async (name, base64) => {
   try {
     await pool.query(
@@ -32,7 +36,7 @@ const insertImage = async (name, base64) => {
   }
 };
 
-
+// Function to sync images with the database
 const syncImages = async () => {
   try {
     const imagesDir = path.join(__dirname, '../public/images');
@@ -74,11 +78,11 @@ const syncImages = async () => {
         }
       }
 
-      
+      // Update the progress bar
       progressBar.update(i + 1);
     }
 
-    
+    // Stop the progress bar
     progressBar.stop();
 
     console.log('Image sync complete.');
@@ -87,7 +91,7 @@ const syncImages = async () => {
   }
 };
 
-
+// Routes
 app.get('/api/images', async (req, res) => {
   try {
     const result = await pool.query('SELECT * FROM private.images');
@@ -98,11 +102,9 @@ app.get('/api/images', async (req, res) => {
   }
 });
 
-
+// Start Server
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
   await syncImages();
-  console.log('All processes are done. The server is fully operational.');
 });
