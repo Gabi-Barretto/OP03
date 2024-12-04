@@ -15,12 +15,10 @@ const fetchImages = async (bucket) => {
       return { error };
     }
 
-    const images = files.map((file) => ({
+    return files.map((file) => ({
       name: file.name,
       url: `${process.env.SUPABASE_S3_ENDPOINT}/${bucket}/${file.name}`,
     }));
-
-    return { images };
   } catch (error) {
     console.error('Error fetching images:', error);
     return { error: 'Failed to fetch images' };
