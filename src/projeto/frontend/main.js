@@ -3,20 +3,25 @@ import { atualizarSetas } from "./modules/seta.js";
 import { hideModal } from "./modules/modal.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-    const sky = document.getElementById("sky");
-    const modal = document.getElementById("modal");
+  const sky = document.getElementById("sky");
+  const modal = document.getElementById("modal");
 
-    // Cena inicial (defina a imagem padrão ao carregar)
-    const cenaInicial = "../public/images/1.jpg";
-    console.log("Carregando cena inicial:", cenaInicial);
+  // Remove a classe clicável no início
+  modal.classList.remove("clickable");
 
-    // Atualiza as setas e a box para a cena inicial
-    atualizarSetas(cenaInicial);
-    atualizarBox(cenaInicial);
+  // Cena inicial (defina a imagem padrão ao carregar)
+  const cenaInicial = "../public/images/1.jpg";
+  console.log("Carregando cena inicial:", cenaInicial);
 
-    // Clique no modal para fechar
-    modal.addEventListener("click", () => {
-        console.log("Modal clicado!");
-        hideModal();
-    });
+  // Atualiza as setas e a box para a cena inicial
+  atualizarSetas(cenaInicial);
+  atualizarBox(cenaInicial);
+
+  // Clique no modal para fechar (ativa quando necessário)
+  modal.addEventListener("click", () => {
+    if (modal.classList.contains("clickable")) {
+      console.log("Modal clicado!");
+      hideModal();
+    }
+  });
 });

@@ -10,6 +10,7 @@
 </head>
 <body>
   <a-scene>
+
     <!-- Imagem 360 inicial -->
     <a-sky
       id="sky"
@@ -17,8 +18,36 @@
       material="shader: standard"
     ></a-sky>
 
-    <!-- Câmera -->
-    <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
+    <!-- Câmera com modal fixo -->
+    <a-entity id="camera" camera look-controls position="0 1.6 0">
+      <!-- Modal -->
+      <a-entity id="modal" visible="false" position="0 0 -2">
+        <a-plane color="#fff" width="1.5" height="1" material="shader: flat" class="clickable">
+          <a-text
+            id="modal-title"
+            value=""
+            position="0 0.3 0.1"
+            anchor="center"
+            color="#000"
+            width="1.4"
+          ></a-text>
+          <a-text
+            id="modal-text"
+            value=""
+            position="0 0 0.1"
+            anchor="center"
+            color="#000"
+            width="1.4"
+          ></a-text>
+          <a-image
+            id="modal-image"
+            position="0 -0.3 0.1"
+            width="0.5"
+            height="0.5"
+          ></a-image>
+        </a-plane>
+      </a-entity>
+    </a-entity>
 
     <!-- Cursor VR e Desktop -->
     <a-entity
