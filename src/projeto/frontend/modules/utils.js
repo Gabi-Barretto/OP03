@@ -2,7 +2,9 @@
 export function getImage(img) {
 
     // Endpoint returning the image URL
-    const apiUrl = 'http://localhost:5000/api/images/' + img;
+    const apiUrl = 'http://localhost:8080/api/images/' + img;
+
+    console.log("daowpdapw");
 
     fetch(apiUrl)
     .then(response => {
@@ -12,7 +14,7 @@ export function getImage(img) {
         return response.json();
     })
     .then(data => {
-        const imageUrl = data;
+        const imageUrl = data.url;
 
         sky.setAttribute("src", imageUrl);
     })

@@ -13,7 +13,6 @@
       <!-- Imagem 360 inicial -->
       <a-sky
         id="sky"
-        src="./images/1.jpg"
         material="shader: standard"
         animation__fadeout="property: material.color; to: #000; startEvents: fadeout; dur: 500"
         animation__fadein="property: material.color; to: #FFF; startEvents: fadein; dur: 500"
@@ -33,7 +32,7 @@
     </a-scene>
 
     <script type="module">
-      import { getImage } from '../frontend/modules/utils.js';
+      import { getImage } from '../projeto/frontend/modules/utils.js';
       // Configurações das setas para cada imagem
       const configuracoesSeta = {
         "1.jpg": {
@@ -56,7 +55,7 @@
       // Função para atualizar a seta com base na imagem atual
       function atualizarSeta(imagem) {
         const seta = document.getElementById("seta");
-        const nomeImagem = imagem.split("/");
+        const nomeImagem = imagem;
         const configuracao = configuracoesSeta[nomeImagem];
 
         // Verifica se há configurações para a imagem atual
@@ -81,18 +80,17 @@
         // Aguarda o desfoque antes de trocar a imagem
         setTimeout(() => {
            // Troca a imagem
-           getImage();
+          getImage(imagem);
           overlay.style.backdropFilter = "blur(0px)"; // Remove o desfoque
           atualizarSeta(imagem);
         }, 500); // Sincronizar com a duração da transição
       }
 
-
-
       // Inicializa a seta com a configuração da imagem inicial
       window.onload = function () {
-        atualizarSeta("1.jpg");
+        mudarCena("1.jpg");
       };
+
     </script>
     <style>
       #overlay {
