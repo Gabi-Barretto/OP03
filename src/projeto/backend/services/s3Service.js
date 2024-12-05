@@ -20,7 +20,7 @@ const uploadToSupabaseS3 = async (bucket, fileName, filePath) => {
     await s3Client.send(command);
 
     console.log(`Uploaded to Supabase S3: ${fileName}`);
-    return `https://${process.env.SUPABASE_S3_ENDPOINT}/${bucket}/${fileName}`;
+    return `https://${process.env.SUPABASE_S3_ENDPOINT}/storage/v1/object/public/${bucket}/${fileName}?t=${encodeURIComponent(new Date().toISOString())}`;
   } catch (err) {
     console.error(`Failed to upload ${fileName} to Supabase S3:`, err);
     return null;
@@ -35,7 +35,7 @@ const fetchImagesFromS3 = async (bucket) => {
 
     return files.map((file) => ({
       name: file.Key,
-      url: `${process.env.SUPABASE_S3_ENDPOINT}/${bucket}/${file.Key}`,
+      url: `https://${process.env.SUPABASE_S3_ENDPOINT}/storage/v1/object/public/${bucket}/${file.Key}?t=${encodeURIComponent(new Date().toISOString())}`,
     }));
   } catch (error) {
     console.error('Error fetching images from S3:', error);
