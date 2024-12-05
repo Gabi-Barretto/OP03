@@ -10,72 +10,21 @@
 </head>
 <body>
   <a-scene>
-
     <!-- Imagem 360 inicial -->
     <a-sky
       id="sky"
       src="../public/images/1.jpg"
       material="shader: standard"
-      animation__fadeout="property: material.color; to: #000; startEvents: fadeout; dur: 500"
-      animation__fadein="property: material.color; to: #FFF; startEvents: fadein; dur: 500"
     ></a-sky>
-    
-    <!-- Seta de navegação sem atributos estáticos de posição e rotação -->
-    <a-entity
-      id="seta"
-      gltf-model="./images/Arrow.glb"
-      class="clickable"
-    ></a-entity>
 
-    <!-- Bloco interativo -->
-    <a-box
-      id="block-1"
-      position="-2 1.5 -4"
-      color="#FF5733"
-      class="clickable"
-    ></a-box>
-
-    <!-- Câmera com modal fixo -->
-    <a-entity id="camera" camera look-controls position="0 1.6 0">
-      <!-- Modal -->
-      <a-entity id="modal" visible="false" position="0 0 -2">
-        <a-plane color="#fff" width="1.5" height="1" material="shader: flat" class="clickable">
-          <!-- Título -->
-          <a-text
-            id="modal-title"
-            value=""
-            position="0 0.3 0.1"
-            anchor="center"
-            color="#000"
-            width="1.4"
-          ></a-text>
-
-          <!-- Texto -->
-          <a-text
-            id="modal-text"
-            value=""
-            position="0 0 0.1"
-            anchor="center"
-            color="#000"
-            width="1.4"
-          ></a-text>
-
-          <!-- Imagem -->
-          <a-image
-            id="modal-image"
-            position="0 -0.3 0.1"
-            width="0.5"
-            height="0.5"
-          ></a-image>
-        </a-plane>
-      </a-entity>
-    </a-entity>
+    <!-- Câmera -->
+    <a-entity id="camera" camera look-controls position="0 1.6 0"></a-entity>
 
     <!-- Cursor VR e Desktop -->
     <a-entity
       id="cursor"
       cursor="rayOrigin: mouse"
-      raycaster="objects: .clickable, .modal-interactive"
+      raycaster="objects: .clickable"
       line="color: #FF0000; opacity: 0.8">
     </a-entity>
   </a-scene>

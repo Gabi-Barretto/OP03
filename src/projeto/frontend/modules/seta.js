@@ -1,32 +1,38 @@
-// Função para atualizar a seta com base na imagem atual
-export function atualizarSeta(imagem) {
-    const seta = document.getElementById("seta");
+import { mudarCena } from "./cena.js";
+import { configuracoesCena } from "./config.js"
+
+export function atualizarSetas(imagem) {
+    console.log(`Atualizando setas para a imagem: ${imagem}`);
+    const cena = document.querySelector("a-scene");
     const nomeImagem = imagem.split("/").pop();
-    const configuracao = configuracoesSeta[nomeImagem];
+    const configuracoes = configuracoesCena[nomeImagem]?.setas;
 
-    // Verifica se há configurações para a imagem atual
-    if (configuracao) {
-        seta.setAttribute("position", configuracao.position);
-        seta.setAttribute("rotation", configuracao.rotation);
-        seta.setAttribute("onclick", `mudarCena('${configuracao.destino}')`);
-        seta.setAttribute("visible", "true");
-    } else {
-        // Esconde a seta se não houver configurações
-        seta.setAttribute("visible", "false");
+    if (!configuracoes) {
+        console.warn(`Nenhuma seta configurada para: ${nomeImagem}`);
+        return;
     }
-}
 
-export function mudarCena(imagem) {
-    const sky = document.getElementById("sky");
-    const overlay = document.getElementById("overlay");
+    console.log(`Configurações encontradas para setas:`, configuracoes);
 
-    // Aumenta o desfoque
-    overlay.style.backdropFilter = "blur(10px)";
+    // Remove setas existentes
+    document.querySelectorAll(".seta").forEach((seta) => seta.remove());
 
-    // Aguarda o desfoque antes de trocar a imagem
-    setTimeout(() => {
-        sky.setAttribute("src", imagem); // Troca a imagem
-        overlay.style.backdropFilter = "blur(0px)"; // Remove o desfoque
-        atualizarSeta(imagem);
-    }, 500); // Sincronizar com a duração da transição
+    // Adiciona as novas setas
+    configuracoes.forEach((config) => {
+        const novaSeta = document.createElement("a-entity");
+        novaSeta.setAttribute("id", config.id);
+        novaSeta.setAttribute("class", "seta clickable");
+        novaSeta.setAttribute("gltf-model", "../public/models/Arrow.glb");
+        novaSeta.setAttribute("position", config.position);
+        novaSeta.setAttribute("rotation", config.rotation);
+
+        // Clique para mudar de cena
+        novaSeta.addEventListener("click", () => {
+            console.log(`Seta clicada! Destino: ${config.destino}`);
+            mudarCena(config.destino);
+        });
+
+        // Adiciona a seta na cena
+        cena.appendChild(novaSeta);
+    });
 }
