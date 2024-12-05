@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Remove a classe clicável no início
   modal.classList.remove("clickable");
+  modal.setAttribute("scale", "0 0 0"); // Reduz a escala para zero
 
   // Cena inicial (defina a imagem padrão ao carregar)
   const cenaInicial = "../public/images/1.jpg";
