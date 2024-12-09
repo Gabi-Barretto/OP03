@@ -1,12 +1,15 @@
 ---
 title: Desenvolvimento
 sidebar_position: 3
+---
+
+## **Semana 3 🚀**
 
 ---
 
-# Integração, Otimização e Automação do Backend - Semana 3
+## Integração, Otimização e Automação do Backend
 
-## Visão Geral da Semana
+### 1. **Visão Geral da Semana**
 
 Na terceira semana do projeto, focamos em **automatizar o processo de upload de imagens para o Supabase**, integrando diretamente no backend. Além disso, estabelecemos rotas claras para listar e acessar individualmente as imagens, preparando a base para futuras melhorias no frontend e no design da experiência do usuário. Buscamos também **otimizar e automatizar todo o backend**, proporcionando um fluxo mais inteligente e escalável de gerenciamento de recursos visuais. Isso incluiu:
 
@@ -23,7 +26,7 @@ No final desta etapa, contamos com um backend mais robusto, modularizado e prepa
 
 ---
 
-## Objetivos
+### 2. **Objetivos**
 
 Os objetivos dessa terceira semana foram focados tanto na automação do upload de imagens quanto na otimização e modularização do backend para escalabilidade futura:
 
@@ -45,7 +48,7 @@ Os objetivos dessa terceira semana foram focados tanto na automação do upload 
 
 ---
 
-## Estrutura do Backend na Semana 3
+### 3. **Estrutura do Backend na Semana 3**
 
 Mantivemos a organização modular implementada anteriormente, incorporando agora as novas funcionalidades de upload, rotas e fluxos otimizados. Abaixo, a estrutura atualizada do backend:
 
@@ -83,7 +86,7 @@ Essa arquitetura modular e otimizada facilita futuras expansões, troca de forne
 
 ---
 
-## Fluxo de Trabalho do Upload Automatizado e Sincronização
+### 4. **Fluxo de Trabalho do Upload Automatizado e Sincronização**
 
 1. **Inicialização do Servidor (`server.js`)**:  
    Ao iniciar, o servidor carrega as variáveis de ambiente, configura o Express (CORS, JSON parsing) e registra as rotas. Em seguida, chama a função `syncImages()` do `imageController` para iniciar o processo de sincronização das imagens.
@@ -179,7 +182,7 @@ Essa arquitetura modular e otimizada facilita futuras expansões, troca de forne
 
 ---
 
-## Rotas Disponíveis
+### 5. **Rotas Disponíveis**
 
 As rotas foram configuradas no arquivo `imageRoutes.js`, garantindo acesso simplificado aos recursos:
 
@@ -218,7 +221,7 @@ router.get('/images/:imageName', async (req, res) => {
 module.exports = router;
 ```
 
-### Listagem de Todas as Imagens
+### 6. **Listagem de Todas as Imagens**
 
 **`GET /api/images`**  
 Retorna um array de objetos, cada objeto representando uma imagem disponível no Supabase, com `name` e `url`. Assim, o frontend ou outros serviços podem exibir as imagens de forma dinâmica.
@@ -237,7 +240,7 @@ Retorna um array de objetos, cada objeto representando uma imagem disponível no
 ]
 ```
 
-### Consulta de Uma Imagem Específica
+### 7. **Consulta de Uma Imagem Específica**
 
 **`GET /api/images/:imageName`**  
 Acessa as informações de uma imagem específica pelo nome. Se encontrada, retorna um objeto com `name` e `url`. Caso contrário, retorna um status 404 com mensagem de erro.
@@ -252,7 +255,7 @@ Acessa as informações de uma imagem específica pelo nome. Se encontrada, reto
 
 ---
 
-## Benefícios da Abordagem
+### 8. **Benefícios da Abordagem**
 
 - **Automação e Eficiência**:  
   Dispensa o upload manual de cada imagem. Ao iniciar o servidor, todas as novas imagens são enviadas ao Supabase automaticamente.
@@ -269,30 +272,9 @@ Acessa as informações de uma imagem específica pelo nome. Se encontrada, reto
 - **Redução de Custos de Manutenção**:  
   O código organizado por camadas diminui o tempo de manutenção. Ajustes em uma parte do código não afetam as outras, tornando o backend mais robusto e menos suscetível a erros.
 
-<!-- ---
+---
 
-## Espaço para Mudanças Futuras
-
-### Ajustes no Frontend  
-À medida que avançamos, o frontend poderá:  
-- Consumir as rotas `/api/images` para montar galerias.  
-- Apresentar imagens específicas para contextos particulares do tour virtual.  
-- Integrar a exibição de imagens com recursos de acessibilidade (descrições em áudio, avatar de Libras, etc.).
-
-### Design e Experiência do Usuário  
-Em etapas futuras, discutiremos:  
-- Melhores práticas visuais para a exibição das imagens (thumbnails, carrosséis, zoom, etc.).  
-- Usabilidade e navegação, oferecendo ao usuário final uma experiência intuitiva no tour virtual do campus.  
-- Integração com outras mídias (vídeos, modelos 3D texturizados, etc.).
-
-### Decisões de Design e UX  
-- Como apresentar as imagens no UI do tour virtual?  
-- Adicionar elementos de navegação intuitiva, zoom ou filtros por tipo de imagem.  
-- Ajustar a paleta de cores, tipografia e layout para melhorar a experiência do usuário.
-
---- -->
-
-## Próximos Passos
+### Próximos Passos do Backend
 
 1. **Otimização do Upload**:  
    Implementar cache local, verificar se a imagem já existe no Supabase para evitar reenvios redundantes e melhorar a eficiência.
@@ -305,3 +287,66 @@ Em etapas futuras, discutiremos:
 
 ---
 
+## Desenvolvimento do Frontend
+
+### 1. **Movimentação na Cena e Navegação**
+- **Arquivos envolvidos:** `box.js`, `cena.js`, `seta.js`, `config.js`, `main.js`
+- **Descrição:**
+  - O sistema permite movimentação entre diferentes cenários utilizando imagens 360° configuradas em `config.js`.
+  - As transições são realizadas através de setas interativas posicionadas dinamicamente na cena.
+  - **Configuração de Setas:**
+    - Cada seta é definida com `id`, `position`, `rotation` e `destino` (imagem para qual leva o usuário).
+    - Setas são renderizadas dinamicamente por `atualizarSetas()` (arquivo `seta.js`).
+  - **Configuração da Cena:**
+    - A transição entre cenas é gerenciada pela função `mudarCena(imagem)` (arquivo `cena.js`), que atualiza o céu (`sky`) e os objetos interativos na cena.
+
+---
+
+### 2. **Criação e Configuração de Modais**
+- **Arquivos envolvidos:** `modal.js`, `box.js`, `index.html`
+- **Descrição:**
+  - Modais foram implementados para exibir informações dinâmicas associadas a elementos interativos na cena.
+  - **Funcionamento do Modal:**
+    - Modal é configurado no HTML (`index.html`) e manipulado via `showModal(data)` e `hideModal()` (arquivo `modal.js`).
+    - Dados como título, texto e imagem são passados dinamicamente pela função `showModal(data)`.
+    - O modal é clicável para fechar, usando a classe `.clickable`.
+  - **Interação com Boxes:**
+    - Boxes interativas são adicionadas na cena dinamicamente em `box.js`.
+    - Ao clicar em uma box, um modal exibe informações específicas, como texto descritivo ou imagens baseadas na configuração do cenário em questão.
+
+---
+
+### 3. **Desenvolvimento de Conteúdos**
+- **Arquivos envolvidos:** `config.js`, `box.js`, `seta.js`, `modal.js`, `utils.js`
+- **Descrição:**
+  - **Textos e Sons:**
+    - Textos para modais são configurados diretamente no código (`box.js` e `config.js`).
+    - O suporte a sons não foi identificado, mas poderia ser facilmente integrado ao sistema de eventos.
+  - **Imagens:**
+    - Imagens 360° estão organizadas em `../public/images/` e vinculadas ao sistema via `config.js`.
+    - A imagem inicial é carregada em `main.js` usando o ID do céu (`sky`).
+  - **Objetos 3D:**
+    - Modelos 3D (como setas) estão vinculados à aplicação via `../public/models/Arrow.glb`.
+
+---
+
+### 4. **Estrutura Geral**
+- **HTML:** Estrutura definida em `index.html`, contendo elementos principais (`a-sky`, `a-entity` para modal e cursor interativo).
+- **JavaScript:** Scripts modulares divididos em funções específicas:
+  - `mudarCena()`: Gerencia transições de cenas.
+  - `atualizarSetas()`: Atualiza as setas interativas para navegação.
+  - `atualizarBox()`: Gerencia a adição e remoção de caixas interativas.
+  - `showModal() / hideModal()`: Gerenciam a exibição e ocultação do modal.
+
+---
+
+### Próximos Passos do Frontend
+
+#### 1. **Desenvolvimento do Design do Modal e seu preenchimento**
+   - O design do modal está em fase de desenvolvimento. O objetivo é criar uma interface visualmente atrativa e responsiva que se integre de forma harmoniosa à aplicação. Assim que finalizado, o novo design será programado e incorporado ao sistema.
+   - Vamos estruturar como iremos fazer o GET das informações de cada modal baseado na cena atual. Estamos decidindo se colocaremos no Banco de Dados ou nas configurações de cada cena.
+
+#### 2. **Atualização da Box Interativa**
+   - A box interativa será substituída por um objeto 3D de um "bloco do Mario". O modelo 3D já está definido e, para finalizar, será necessário apenas aplicar a textura adequada para garantir a fidelidade visual. 
+
+---

@@ -48,8 +48,8 @@ export const configuracoesCena = {
         setas: [
             {
                 id: "seta-1",
-                position: "-11.235 -3.088 8.827",
-                rotation: "-15.46 -2.143 -17.59",
+                position: "-5.999 -3.232 14.291",
+                rotation: "-7.824 13.580 -4.802",
                 destino: "../public/images/4.jpg",
             },
         ],
