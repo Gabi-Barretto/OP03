@@ -379,6 +379,8 @@ O sistema de áudio enriquece a experiência do jogador através de narração, 
 - **Diegético:** Sons que fazem parte do mundo do jogo e podem ser percebidos pelos personagens.
 - **Não-diegético:** Sons que servem como elementos narrativos ou de ambientação para o jogador, mas não fazem parte do mundo interno do jogo.
 
+#### 5.4. Link dos audios:
+- [https://drive.google.com/drive/folders/1_Y5vWi6r5jRo-d5K1B0vwnHjrSo3FtSR](https://drive.google.com/drive/folders/1_Y5vWi6r5jRo-d5K1B0vwnHjrSo3FtSR?usp=sharing)
 ---
 
 ### Próximos Passos do Frontend
