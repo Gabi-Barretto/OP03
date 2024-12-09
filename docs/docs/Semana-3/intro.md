@@ -340,6 +340,47 @@ Acessa as informações de uma imagem específica pelo nome. Se encontrada, reto
 
 ---
 
+### 5. Sistema de Áudio
+
+O sistema de áudio enriquece a experiência do jogador através de narração, sons ambientais e trilhas sonoras personalizáveis. Todos os assets de áudio estão organizados na pasta `estáticos/áudio`.
+
+#### 5.1. Componentes do Sistema
+
+##### Locutor Narrador
+- **Função:** Narra a experiência do jogador, descrevendo cada espaço que o usuário explora.
+- **Ativação:** Cada área possui triggers que iniciam a narração correspondente.
+
+##### Sons Ambientais
+- **Função:** Sons específicos de cada ambiente para aumentar a imersão.
+- **Variedade:** Diferentes sons são reproduzidos conforme o ambiente (ex.: floresta, cidade).
+
+##### Trilhas Sonoras
+- **Opções Disponíveis:** Rock, Eletrônica e Jazz.
+- **Personalização:** O jogador pode escolher uma das três trilhas para acompanhar todo o tour guiado.
+
+#### 5.2. Assets de Áudio
+
+- **Localização:** `estáticos/áudio/`
+  - **narrador/**: Arquivos de narração.
+  - **ambientes/**: Sons ambientais por tipo de ambiente.
+  - **trilhas/**: Trilhas sonoras disponíveis (Rock, Eletrônica, Jazz).
+  - **efeitos/**: Efeitos sonoros adicionais.
+
+#### 5.3. Sons Diegéticos
+
+| **Tipo de Som**      | **Descrição**                                   | **Diegético** |
+|----------------------|-------------------------------------------------|---------------|
+| **Narração**         | Locutor que guia o jogador pelas áreas do jogo. | Não           |
+| **Sons Ambientais**  | Sons específicos do ambiente atual.             | Sim           |
+| **Trilhas Sonoras**  | Música de fundo selecionável.                   | Não           |
+| **Efeitos Sonoros**  | Sons adicionais como passos e interações.       | Sim           |
+
+**Definições:**
+- **Diegético:** Sons que fazem parte do mundo do jogo e podem ser percebidos pelos personagens.
+- **Não-diegético:** Sons que servem como elementos narrativos ou de ambientação para o jogador, mas não fazem parte do mundo interno do jogo.
+
+---
+
 ### Próximos Passos do Frontend
 
 #### 1. **Desenvolvimento do Design do Modal e seu preenchimento**
