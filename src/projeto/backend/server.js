@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const imageRoutes = require('./routes/imageRoutes');
-const { syncImages } = require('./controllers/imageController');
+const { syncLocalImagesWithSupabase } = require('./services/s3Service');
 
 dotenv.config({ path: '.env' });
 
@@ -13,8 +13,10 @@ app.use(express.json());
 
 app.use('/api', imageRoutes);
 
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, async () => {
   console.log(`Server running on port ${PORT}`);
-  await syncImages();
+  const bucket = process.env.SUPABASE_BUCKET;
+  await syncLocalImagesWithSupabase(bucket);
 });

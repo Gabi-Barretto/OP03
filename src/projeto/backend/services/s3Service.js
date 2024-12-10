@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { PutObjectCommand, ListObjectsV2Command } = require('@aws-sdk/client-s3');
+const { PutObjectCommand, ListObjectsV2Command, GetObjectCommand } = require('@aws-sdk/client-s3');
 const s3Client = require('../config/s3Config');
 const { getFallbackMimeType } = require('../utils/mimeUtil');
 
@@ -31,7 +31,7 @@ const fetchImagesFromS3 = async (bucket) => {
   try {
     const params = { Bucket: bucket };
     const command = new ListObjectsV2Command(params);
-    const { Contents: files } = await s3Client.send(command);
+    const { Contents: files = [] } = await s3Client.send(command);
 
     return files.map((file) => ({
       name: file.Key,
@@ -43,4 +43,83 @@ const fetchImagesFromS3 = async (bucket) => {
   }
 };
 
-module.exports = { uploadToSupabaseS3, fetchImagesFromS3 };
+/**
+ * Downloads a file from Supabase S3 to the local file system.
+ */
+const downloadFromSupabaseS3 = async (bucket, fileName, localDir) => {
+  try {
+    const params = {
+      Bucket: bucket,
+      Key: fileName,
+    };
+
+    const command = new GetObjectCommand(params);
+    const response = await s3Client.send(command);
+
+    const localFilePath = path.join(localDir, fileName);
+    const writeStream = fs.createWriteStream(localFilePath);
+
+    return new Promise((resolve, reject) => {
+      response.Body.pipe(writeStream)
+        .on('error', (err) => {
+          console.error(`Error writing file ${fileName} to disk:`, err);
+          reject(err);
+        })
+        .on('close', () => {
+          console.log(`Downloaded ${fileName} to ${localFilePath}`);
+          resolve(localFilePath);
+        });
+    });
+  } catch (error) {
+    console.error(`Failed to download ${fileName} from Supabase S3:`, error);
+    return null;
+  }
+};
+
+/**
+ * Scans the Supabase S3 bucket and checks if images are present locally.
+ * If not, downloads the missing images.
+ */
+const syncLocalImagesWithSupabase = async (bucket) => {
+  try {
+    const localDir = path.resolve(__dirname, '../../public/images');
+    
+    // Ensure local directory exists
+    if (!fs.existsSync(localDir)) {
+      fs.mkdirSync(localDir, { recursive: true });
+    }
+
+    // Fetch images from S3
+    const remoteImages = await fetchImagesFromS3(bucket);
+    if (!remoteImages.length) {
+      console.log('No images found in the specified bucket.');
+      return;
+    }
+
+    // Get list of local images
+    const localImages = fs.readdirSync(localDir).filter((file) => {
+      // Optional: Add some filtering logic to ensure these are images if needed
+      return fs.statSync(path.join(localDir, file)).isFile();
+    });
+
+    // Determine which images are missing locally
+    const remoteImageNames = remoteImages.map(img => img.name);
+    const missingImages = remoteImageNames.filter(fileName => !localImages.includes(fileName));
+
+    if (missingImages.length === 0) {
+      console.log('All images are up-to-date locally.');
+      return;
+    }
+
+    console.log(`Found ${missingImages.length} missing images. Downloading...`);
+    for (const fileName of missingImages) {
+      await downloadFromSupabaseS3(bucket, fileName, localDir);
+    }
+
+    console.log('Local sync complete.');
+  } catch (error) {
+    console.error('Error syncing local images with Supabase:', error);
+  }
+};
+
+module.exports = { uploadToSupabaseS3, fetchImagesFromS3, downloadFromSupabaseS3, syncLocalImagesWithSupabase };
