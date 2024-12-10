@@ -340,7 +340,7 @@ Acessa as informações de uma imagem específica pelo nome. Se encontrada, reto
 
 ---
 
-### 5. Sistema de Áudio
+### 5. **Sistema de Áudio**
 
 O sistema de áudio enriquece a experiência do jogador através de narração, sons ambientais e trilhas sonoras personalizáveis. Todos os assets de áudio estão organizados na pasta `estáticos/áudio`.
 
