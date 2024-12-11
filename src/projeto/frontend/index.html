@@ -10,7 +10,6 @@
 </head>
 <body>
   <a-scene>
-
     <!-- Imagem 360 inicial -->
     <a-sky
       id="sky"
@@ -47,6 +46,69 @@
           ></a-image>
         </a-plane>
       </a-entity>
+      
+      <!-- Som estático dentro da câmera -->
+      <a-entity position="2 -1 -2">
+        <!-- Fundo do som -->
+        <a-plane 
+        position="-0.01 -0.15 0.001"
+        width="1.8"
+        height="0.8"
+        color="#d3d3d3"
+        material="side: double"
+        rounded="radius: 0.2">
+        </a-plane>
+
+        <!-- Botões de estilo (Jazz, Eletrônica, Rock) -->
+        <a-plane 
+          position="-0.5 0.05 0.01"
+          width="0.4"
+          height="0.2"
+          color="#000"
+          class="clickable"
+          id="jazz-button">
+          <a-text value="Jazz" color="#fff" align="center" width="0.8" position="0 0 0.01"></a-text>
+        </a-plane>
+
+        <a-plane 
+          position="0 0.05 0.01"
+          width="0.4"
+          height="0.2"
+          color="#000"
+          class="clickable"
+          id="electronic-button">
+          <a-text value="Eletrônica" color="#fff" align="center" width="0.8" position="0 0 0.01"></a-text>
+        </a-plane>
+
+        <a-plane 
+          position="0.5 0.05 0.01"
+          width="0.4"
+          height="0.2"
+          color="#000"
+          class="clickable"
+          id="rock-button">
+          <a-text value="Rock" color="#fff" align="center" width="0.8" position="0 0 0.01"></a-text>
+        </a-plane>
+
+      <!-- Botão para mutar/desmutar o narrador -->
+      <a-circle 
+        position="-0.3 -0.3 0.01"
+        radius="0.1"
+        color="#1E90FF"
+        class="clickable"
+        id="mute-narrator-button">
+        <a-text value="mutar/desmutar o narrador" color="#000" align="center" width="1" position="0 0.15 0.02"></a-text>
+      </a-circle>
+
+      <!-- Botão para mutar/desmutar a música -->
+      <a-circle 
+        position="0.3 -0.3 0.01"
+        radius="0.1"
+        color="#32CD32"
+        class="clickable"
+        id="mute-music-button">
+        <a-text value="mutar/desmutar a música" color="#000" align="center" width="1" position="0 0.15 0.02"></a-text>
+      </a-circle>
     </a-entity>
 
     <!-- Cursor VR e Desktop -->
