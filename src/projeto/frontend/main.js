@@ -1,4 +1,4 @@
-import { atualizarBox } from "./modules/box.js";
+import { atualizarBoxes } from "./modules/box.js";
 import { atualizarSetas } from "./modules/seta.js";
 import { hideModal } from "./modules/modal.js";
 
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Atualiza as setas e a box para a cena inicial
   atualizarSetas(cenaInicial);
-  atualizarBox(cenaInicial);
+  atualizarBoxes(cenaInicial);
 
   // Clique no modal para fechar (ativa quando necessário)
   modal.addEventListener("click", () => {

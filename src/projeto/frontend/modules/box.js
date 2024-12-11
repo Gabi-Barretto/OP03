@@ -1,36 +1,35 @@
 import { configuracoesCena } from "./config.js";
 import { showModal } from "./modal.js";
 
-export function atualizarBox(imagem) {
-  console.log(`Atualizando box para imagem: ${imagem}`);
+export function atualizarBoxes(imagem) {
+  console.log(`Atualizando boxes para imagem: ${imagem}`);
   const cena = document.querySelector("a-scene");
   const nomeImagem = imagem.split("/").pop();
-  const configuracoes = configuracoesCena[nomeImagem]?.box;
+  const configuracoes = configuracoesCena[nomeImagem]?.boxes;
 
-  // Remove a box existente (se houver)
-  const boxExistente = document.querySelector("#dynamic-box");
-  if (boxExistente) {
-    boxExistente.remove();
-  }
+  // Remove todas as caixas/modelos existentes
+  const modelosExistentes = document.querySelectorAll(".dynamic-box");
+  modelosExistentes.forEach((modelo) => modelo.remove());
 
-  // Adiciona uma nova box, caso configurada
-  if (configuracoes) {
-    const novaBox = document.createElement("a-box");
-    novaBox.setAttribute("id", "dynamic-box");
-    novaBox.setAttribute("position", configuracoes.position);
-    novaBox.setAttribute("color", configuracoes.color);
-    novaBox.setAttribute("class", "clickable");
+  // Adiciona novos modelos, caso configurados
+  if (configuracoes && configuracoes.length > 0) {
+    configuracoes.forEach((configuracao, index) => {
+      const novoModelo = document.createElement("a-entity");
+      novoModelo.setAttribute("id", `dynamic-box-${index}`);
+      novoModelo.setAttribute("class", "dynamic-box clickable");
+      novoModelo.setAttribute("position", configuracao.position);
+      novoModelo.setAttribute("gltf-model", "../public/models/Box.glb"); // Caminho do modelo
 
-    // Evento de clique para abrir o modal
-    novaBox.addEventListener("click", () => {
-      console.log("Box clicada!");
-      showModal(configuracoes.data); // Usa os dados diretamente da configuração
+      // Evento de clique para abrir o modal
+      novoModelo.addEventListener("click", () => {
+        console.log(`Modelo ${index} clicado!`);
+        showModal(configuracao.data); // Usa os dados diretamente da configuração
+      });
+
+      // Adiciona o novo modelo à cena
+      cena.appendChild(novoModelo);
     });
-
-    // Adiciona a nova box à cena
-    cena.appendChild(novaBox);
   } else {
-    console.warn(`Nenhuma configuração de box encontrada para a imagem: ${nomeImagem}`);
+    console.warn(`Nenhuma configuração de modelos encontrada para a imagem: ${nomeImagem}`);
   }
 }
-

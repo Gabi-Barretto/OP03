@@ -1,4 +1,4 @@
-import { atualizarBox } from "./box.js";
+import { atualizarBoxes } from "./box.js";
 import { atualizarSetas } from "./seta.js";
 
 export function mudarCena(imagem) {
@@ -9,6 +9,6 @@ export function mudarCena(imagem) {
     setTimeout(() => {
         sky.setAttribute("src", imagem);
         atualizarSetas(imagem);
-        atualizarBox(imagem);
+        atualizarBoxes(imagem);
     }, 100); // Delay para transição
 }
