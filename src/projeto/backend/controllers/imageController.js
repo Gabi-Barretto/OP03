@@ -1,6 +1,3 @@
-// controllers/imageController.js
-// Full code with hardcoded image fetching, using the provided URLs, no omission
-
 const path = require('path');
 const fs = require('fs');
 const { PutObjectCommand } = require('@aws-sdk/client-s3');
@@ -41,7 +38,7 @@ console.log(`⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀�
     Scanning images folder...
     `);
 
-// Keep the upload functionality as is
+
 const uploadToSupabaseS3 = async (bucket, fileName, filePath) => {
   try {
     const fileStream = fs.createReadStream(filePath);
@@ -65,7 +62,7 @@ const uploadToSupabaseS3 = async (bucket, fileName, filePath) => {
   }
 };
 
-// Hardcode the image URLs here, no pulling from Supabase S3
+
 const fetchImagesFromS3 = async (bucket) => {
   return [
     {

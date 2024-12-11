@@ -2,7 +2,7 @@ const express = require('express');
 const { fetchImagesFromS3, fetchImageByName } = require('../controllers/imageController');
 const router = express.Router();
 
-// Fetch all images
+
 router.get('/images', async (req, res) => {
   try {
     const bucket = process.env.SUPABASE_BUCKET;
@@ -14,7 +14,7 @@ router.get('/images', async (req, res) => {
   }
 });
 
-// Fetch a single image by name
+
 router.get('/images/:imageName', async (req, res) => {
   const { imageName } = req.params;
 
