@@ -1,5 +1,8 @@
-const audio = new Audio('../public/audio/jazz.mp3')
-var selectedGenre = 0
+const JAZZ = 0
+const HOUSE = 1
+const ROCK = 2
+const audio = new Audio('../public/audio/soundtrack/jazz.mp3')
+var selectedGenre = JAZZ
 audio.loop = true
 audio.play()
 var isPlaying = true
@@ -12,18 +15,26 @@ document.querySelector('#mute-music-button').addEventListener('click', () => {
   isPlaying = !isPlaying
 })
 document.querySelector('#jazz-button').addEventListener('click', () => {
-  if (selectedGenre != 0) {
-    audio.src = '../public/audio/jazz.mp3'
+  if (selectedGenre != JAZZ) {
+    audio.src = '../public/audio/soundtrack/jazz.mp3'
     audio.load()
     audio.play()
-    selectedGenre = 0
+    selectedGenre = JAZZ
   }
 })
 document.querySelector('#electronic-button').addEventListener('click', () => {
-  if (selectedGenre != 1) {
-    audio.src = '../public/audio/house.mp3'
+  if (selectedGenre != HOUSE) {
+    audio.src = '../public/audio/soundtrack/house.mp3'
     audio.load()
     audio.play()
-    selectedGenre = 1
+    selectedGenre = HOUSE
+  }
+})
+document.querySelector('#rock-button').addEventListener('click', () => {
+  if (selectedGenre != ROCK) {
+    audio.src = '../public/audio/soundtrack/sleepwalk.mp3'
+    audio.load()
+    audio.play()
+    selectedGenre = ROCK
   }
 })
