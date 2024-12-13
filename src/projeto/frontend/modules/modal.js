@@ -1,29 +1,80 @@
-export async function showModal(data) {
+// Função para mostrar o modal com uma única box
+export async function showModal(box) {
   const modal = document.getElementById("modal");
-  const title = document.getElementById("modal-title");
-  const text = document.getElementById("modal-text");
-  const image = document.getElementById("modal-image");
+  const plane = document.getElementById("modal-plane");
+  // const title = document.getElementById("modal-title");
+  // const text = document.getElementById("modal-text");
 
-  // Carrega a imagem Base64 do arquivo .txt
-  const response = await fetch('../public/images/modal.txt');
-  const base64 = await response.text();
 
-  // Adiciona a string Base64 diretamente
-  const imageBase64 = `data:image/png;base64,${base64}`;
 
-  // Configura os valores no modal
-  title.setAttribute("value", data.title || "");
-  text.setAttribute("value", data.text || "");
-  image.setAttribute("src", imageBase64 || "");
+  try {
+    // Remove o vínculo com a imagem anterior
+    plane.setAttribute("src", ""); // Reseta o conteúdo visual imediatamente
 
-  modal.setAttribute("visible", "true");
-  modal.setAttribute("scale", "1 1 1"); // Define o tamanho original
-  modal.classList.add("clickable"); // Torna clicável apenas ao mostrar
+    const links = box.data.link || [];
+    const modalImages = Array.from({ length: 8 }, (_, i) =>
+      document.getElementById(`modal-image-${i + 1}`)
+    );
+
+    modalImages.forEach((imageEl, index) => {
+      const linkData = links[index];
+      if (linkData) {
+        // Define o caminho da imagem
+        imageEl.setAttribute("src", linkData.image || "");
+        imageEl.setAttribute("visible", "true");
+        imageEl.classList.add("clickable");
+
+        // Adiciona evento de clique para redirecionar ao link
+        imageEl.onclick = () => {
+          if (linkData.link) {
+            window.open(linkData.link, "_blank");
+          }
+        };
+      } else {
+        // Esconde a imagem se não houver dados
+        imageEl.setAttribute("visible", "false");
+        imageEl.onclick = null;
+      }
+    });
+
+    // Pega a imagem diretamente de box.image
+    const image = new Image();
+    image.src = box.image;
+
+    image.onload = () => {
+      plane.setAttribute("src", image.src);
+
+      // Manter lógica comentada para título e descrição
+      // const title = document.getElementById("modal-title");
+      // const text = document.getElementById("modal-text");
+      // title.setAttribute("value", box.data.title || "");
+      // text.setAttribute("value", box.data.description || "");
+
+      // Exibe o modal
+      modal.setAttribute("visible", "true");
+      modal.setAttribute("scale", "1 1 1");
+      modal.classList.add("clickable"); // Torna clicável apenas ao mostrar
+    }
+  } catch (error) {
+    console.error("Erro ao carregar imagem para box:", error);
+  }
+
 }
 
 export function hideModal() {
   const modal = document.getElementById("modal");
+  const modalImages = Array.from({ length: 8 }, (_, i) =>
+    document.getElementById(`modal-image-${i + 1}`)
+  );
+
+  // Esconde o modal e limpa os eventos de clique
   modal.setAttribute("visible", "false");
-  modal.setAttribute("scale", "0 0 0"); // Reduz a escala para zero
-  modal.classList.remove("clickable"); // Remove a classe clicável ao fechar
+  modal.setAttribute("scale", "0 0 0");
+  modal.classList.remove("clickable");
+
+  modalImages.forEach((imageEl) => {
+    imageEl.setAttribute("src", "");
+    imageEl.setAttribute("visible", "false");
+    imageEl.onclick = null;
+  });
 }

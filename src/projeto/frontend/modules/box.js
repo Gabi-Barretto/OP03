@@ -22,8 +22,8 @@ export function atualizarBoxes(imagem) {
 
       // Evento de clique para abrir o modal
       novoModelo.addEventListener("click", () => {
-        console.log(`Modelo ${index} clicado!`);
-        showModal(configuracao.data); // Usa os dados diretamente da configuração
+        console.log(`Modelo ${index} clicado! Configuração:`, configuracao);
+        showModal(configuracao); // Envia a configuração completa da box
       });
 
       // Adiciona o novo modelo à cena
