@@ -45,6 +45,12 @@ Para criar uma experiência imersiva:
 
 ---
 
+## **Imagens do Wireframe Inicial**
+
+![Wireframe Inicial](./img/wireframe_inicial.png)
+
+---
+
 ## **Teste com Ferramentas**
 
 Realizamos uma **primeira versão da estrutura do Tour Virtual**.  
