@@ -125,13 +125,13 @@ export const configuracoesCena = {
         "id": "seta-1",
         "position": "-4.3 -1.4 12",
         "rotation": "-7.824 13.580 -4.802",
-        "destino": "../public/images/sala_SI.JPG"
+        "destino": "../public/images/sala_EC.JPG"
       },
       {
         "id": "seta-2",
         "position": "8.3 -1.7 -10",
         "rotation": "-7.824 200 -4.802",
-        "destino": "../public/images/sala_EC.JPG"
+        "destino": "../public/images/sala_SI.JPG"
       },
       {
         "id": "seta-3",
@@ -151,8 +151,8 @@ export const configuracoesCena = {
     setas: [
       {
         id: "seta-1",
-        position: "-5.999 -3.232 14.291",
-        rotation: "-7.824 13.580 -4.802",
+        position: "8.5 -3.232 -10",
+        rotation: "-7.824 180 -4.802",
         destino: "../public/images/honest.JPG",
       },
     ],
@@ -161,8 +161,8 @@ export const configuracoesCena = {
     setas: [
       {
         id: "seta-1",
-        position: "-5.999 -3.232 14.291",
-        rotation: "-7.824 13.580 -4.802",
+        position: "-16 -0.8 -13",
+        rotation: "2 -70 -6",
         destino: "../public/images/honest.JPG",
       },
     ],
@@ -171,8 +171,8 @@ export const configuracoesCena = {
     setas: [
       {
         id: "seta-1",
-        position: "-5.999 -3.232 14.291",
-        rotation: "-7.824 13.580 -4.802",
+        position: "-14.2 -1.4 -0.6",
+        rotation: "0 -45 -8",
         destino: "../public/images/honest.JPG",
       },
     ],
@@ -181,8 +181,8 @@ export const configuracoesCena = {
     setas: [
       {
         id: "seta-1",
-        position: "-5.999 -3.232 14.291",
-        rotation: "-7.824 13.580 -4.802",
+        position: "7 -3.632 -11",
+        rotation: "-7.824 203 -4.802",
         destino: "../public/images/honest.JPG",
       },
     ],
