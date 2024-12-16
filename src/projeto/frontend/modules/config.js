@@ -95,8 +95,58 @@ export const configuracoesCena = {
         id: "seta-1",
         position: "-5.999 -3.232 14.291",
         rotation: "-7.824 13.580 -4.802",
-        destino: "../public/images/4.jpg",
+        destino: "../public/images/5.jpg",
       },
     ],
   },
+  "5.jpg": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-5.999 -3.232 14.291",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/6.jpg",
+      },
+    ],
+  },
+  "6.jpg": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-5.999 -3.232 14.291",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/sala_SI.JPG",
+      },
+    ],
+  },
+  "sala_SI.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-5.999 -3.232 14.291",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/sala_ES.JPG",
+      },
+    ],
+  },
+  "sala_ES.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-5.999 -3.232 14.291",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/sala_EC.JPG",
+      },
+    ],
+  },
+  "sala_EC.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-5.999 -3.232 14.291",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/sala_EC.JPG",
+      },
+    ],
+  }
 };
