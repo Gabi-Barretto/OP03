@@ -19,6 +19,12 @@ export const configuracoesCena = {
           link: [
             { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
             { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
           ],
         },
       },
