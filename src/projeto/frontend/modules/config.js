@@ -109,8 +109,8 @@ export const configuracoesCena = {
     setas: [
       {
         id: "seta-1",
-        position: "-5.999 -3.232 14.291",
-        rotation: "-7.824 13.580 -4.802",
+        position: "-15.999 -3.232 -1.291",
+        rotation: "-7.824 -90 -4.802",
         destino: "../public/images/6.jpg",
       },
     ],
@@ -121,8 +121,36 @@ export const configuracoesCena = {
         id: "seta-1",
         position: "-5.999 -3.232 14.291",
         rotation: "-7.824 13.580 -4.802",
-        destino: "../public/images/sala_SI.JPG",
+        destino: "../public/images/honest.JPG",
       },
+    ],
+  },
+  "honest.JPG": {
+    "setas": [
+      {
+        "id": "seta-1",
+        "position": "-4.3 -1.4 12",
+        "rotation": "-7.824 13.580 -4.802",
+        "destino": "../public/images/sala_SI.JPG"
+      },
+      {
+        "id": "seta-2",
+        "position": "8.3 -1.7 -10",
+        "rotation": "-7.824 200 -4.802",
+        "destino": "../public/images/sala_EC.JPG"
+      },
+      {
+        "id": "seta-3",
+        "position": "4.4 -1.3 -9.5",
+        "rotation": "0 200 0",
+        "destino": "../public/images/sala_CC.JPG"
+      },
+      {
+        "id": "seta-4",
+        "position": "-0.171 -1.6 12",
+        "rotation": "-7.824 60 -4.802",
+        "destino": "../public/images/sala_ES.JPG"
+      }
     ],
   },
   "sala_SI.JPG": {
@@ -131,7 +159,7 @@ export const configuracoesCena = {
         id: "seta-1",
         position: "-5.999 -3.232 14.291",
         rotation: "-7.824 13.580 -4.802",
-        destino: "../public/images/sala_ES.JPG",
+        destino: "../public/images/honest.JPG",
       },
     ],
   },
@@ -141,7 +169,7 @@ export const configuracoesCena = {
         id: "seta-1",
         position: "-5.999 -3.232 14.291",
         rotation: "-7.824 13.580 -4.802",
-        destino: "../public/images/sala_EC.JPG",
+        destino: "../public/images/honest.JPG",
       },
     ],
   },
@@ -151,7 +179,17 @@ export const configuracoesCena = {
         id: "seta-1",
         position: "-5.999 -3.232 14.291",
         rotation: "-7.824 13.580 -4.802",
-        destino: "../public/images/sala_EC.JPG",
+        destino: "../public/images/honest.JPG",
+      },
+    ],
+  },
+  "sala_CC.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-5.999 -3.232 14.291",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/honest.JPG",
       },
     ],
   }
