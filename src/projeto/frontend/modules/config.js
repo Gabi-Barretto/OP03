@@ -30,8 +30,8 @@ export const configuracoesCena = {
           // title: "Box 2", 
           // description: "Este é o modelo 2.",
           link: [
-            { image: "../public/images/logo1.png", link: "https://inteli.edu.br" },
-            { image: "../public/images/logo2.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
           ],
         },
       },
@@ -43,8 +43,8 @@ export const configuracoesCena = {
           // title: "Box 2", 
           // description: "Este é o modelo 2.",
           link: [
-            { image: "../public/images/logo1.png", link: "https://inteli.edu.br" },
-            { image: "../public/images/logo2.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
           ],
         },
       },
@@ -56,8 +56,8 @@ export const configuracoesCena = {
           // title: "Box 2", 
           // description: "Este é o modelo 2.",
           link: [
-            { image: "../public/images/logo1.png", link: "https://inteli.edu.br" },
-            { image: "../public/images/logo2.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
           ],
         },
       },
