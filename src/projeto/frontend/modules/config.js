@@ -120,30 +120,30 @@ export const configuracoesCena = {
     ],
   },
   "honest.JPG": {
-    "setas": [
+    setas: [
       {
-        "id": "seta-1",
-        "position": "-4.3 -1.4 12",
-        "rotation": "-7.824 13.580 -4.802",
-        "destino": "../public/images/sala_EC.JPG"
+        id: "seta-1",
+        position: "-4.3 -1.4 12",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/sala_EC.JPG"
       },
       {
-        "id": "seta-2",
-        "position": "8.3 -1.7 -10",
-        "rotation": "-7.824 200 -4.802",
-        "destino": "../public/images/sala_SI.JPG"
+        id: "seta-2",
+        position: "8.3 -1.7 -10",
+        rotation: "-7.824 200 -4.802",
+        destino: "../public/images/sala_SI.JPG"
       },
       {
-        "id": "seta-3",
-        "position": "4.4 -1.3 -9.5",
-        "rotation": "0 200 0",
-        "destino": "../public/images/sala_CC.JPG"
+        id: "seta-3",
+        position: "4.4 -1.3 -9.5",
+        rotation: "0 200 0",
+        destino: "../public/images/sala_CC.JPG"
       },
       {
-        "id": "seta-4",
-        "position": "-0.171 -1.6 12",
-        "rotation": "-7.824 60 -4.802",
-        "destino": "../public/images/sala_ES.JPG"
+        id: "seta-4",
+        position: "-0.171 -1.6 12",
+        rotation: "-7.824 60 -4.802",
+        destino: "../public/images/sala_ES.JPG"
       }
     ],
   },
