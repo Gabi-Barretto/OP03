@@ -77,12 +77,6 @@ export const configuracoesCena = {
         rotation: "-15.98 -178.7 -6.24",
         destino: "../public/images/3.jpg",
       },
-      {
-        id: "seta-2",
-        position: "8.000 2.000 -10.000",
-        rotation: "0 -30 0",
-        destino: "../public/images/4.jpg",
-      },
     ],
   },
   "3.jpg": {
