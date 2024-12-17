@@ -160,8 +160,11 @@
     <!-- Cursor VR e Desktop -->
     <a-entity
       id="cursor"
-      cursor="rayOrigin: mouse; fuse: true; fuseTimeout:1500"
+      cursor="rayOrigin:entity; fuse: true; fuseTimeout:1500"
       raycaster="objects: .clickable"
+      position="0 0 -1"
+      geometry="primitive:sphere; radius:0.005"
+      material="color:#000000; shader: flat; opacity:0.5"
       line="color: #FF0000; opacity: 0.8">
     </a-entity>
     
