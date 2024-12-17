@@ -1,40 +1,26 @@
-const JAZZ = 0
-const HOUSE = 1
-const ROCK = 2
 const audio = new Audio('../public/audio/soundtrack/jazz.mp3')
-var selectedGenre = JAZZ
 audio.loop = true
 audio.play()
+audio.volume = 0.6
 var isPlaying = true
-document.querySelector('#mute-music-button').addEventListener('click', () => {
+document.querySelector('#mute-music').addEventListener('click', () => {
   if (isPlaying) {
     audio.pause()
   } else {
     audio.play()
   }
   isPlaying = !isPlaying
+  console.log('tocar musica: ' + isPlaying)
 })
-document.querySelector('#jazz-button').addEventListener('click', () => {
-  if (selectedGenre != JAZZ) {
-    audio.src = '../public/audio/soundtrack/jazz.mp3'
-    audio.load()
-    audio.play()
-    selectedGenre = JAZZ
+document.querySelector('#music-vol-up').addEventListener('click', () => {
+  if (audio.volume < 1.0) {
+    audio.volume += 0.1
   }
+  console.log('volume da musica: ' + audio.volume)
 })
-document.querySelector('#electronic-button').addEventListener('click', () => {
-  if (selectedGenre != HOUSE) {
-    audio.src = '../public/audio/soundtrack/house.mp3'
-    audio.load()
-    audio.play()
-    selectedGenre = HOUSE
+document.querySelector('#music-vol-down').addEventListener('click', () => {
+  if (audio.volume > 0.0) {
+    audio.volume -= 0.1
   }
-})
-document.querySelector('#rock-button').addEventListener('click', () => {
-  if (selectedGenre != ROCK) {
-    audio.src = '../public/audio/soundtrack/sleepwalk.mp3'
-    audio.load()
-    audio.play()
-    selectedGenre = ROCK
-  }
+  console.log('volume da musica: ' + audio.volume)
 })
