@@ -15,7 +15,7 @@
     <!-- Imagem 360 inicial -->
     <a-sky
       id="sky"
-      src="../public/images/1.jpg"
+      src="../public/images/6.jpg"
       material="shader: standard"
     ></a-sky>
 
@@ -160,7 +160,7 @@
     <!-- Cursor VR e Desktop -->
     <a-entity
       id="cursor"
-      cursor="rayOrigin: mouse"
+      cursor="rayOrigin: mouse; fuse: true; fuseTimeout:1500"
       raycaster="objects: .clickable"
       line="color: #FF0000; opacity: 0.8">
     </a-entity>
