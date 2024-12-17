@@ -18,6 +18,7 @@ document.querySelector('#jazz-button').addEventListener('click', () => {
   if (selectedGenre != JAZZ) {
     audio.src = '../public/audio/soundtrack/jazz.mp3'
     audio.load()
+    audio.volume = 0.6
     audio.play()
     selectedGenre = JAZZ
   }
