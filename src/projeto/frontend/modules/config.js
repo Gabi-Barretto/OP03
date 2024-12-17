@@ -19,6 +19,12 @@ export const configuracoesCena = {
           link: [
             { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
             { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
+            { image: "../public/images/parceiros/logo.png", link: "https://inteli.edu.br" },
+            { image: "../public/images/parceiros/logo.png", link: "https://example.com" },
           ],
         },
       },
@@ -73,9 +79,9 @@ export const configuracoesCena = {
       },
       {
         id: "seta-2",
-        position: "8.000 2.000 -10.000",
-        rotation: "0 -30 0",
-        destino: "../public/images/4.jpg",
+        position: "6.8 -2.000 5.7",
+        rotation: "0 80 0",
+        destino: "../public/images/1.jpg",
       },
     ],
   },
@@ -87,6 +93,12 @@ export const configuracoesCena = {
         rotation: "-15.46 -2.143 -17.59",
         destino: "../public/images/4.jpg",
       },
+      {
+        id: "seta-2",
+        position: "7.2 -2.000 -2.6",
+        rotation: "0 150 0",
+        destino: "../public/images/2.jpg",
+      },
     ],
   },
   "4.jpg": {
@@ -95,8 +107,152 @@ export const configuracoesCena = {
         id: "seta-1",
         position: "-5.999 -3.232 14.291",
         rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/5.jpg",
+      },
+      {
+        id: "seta-2",
+        position: "4 -1.1 -6.1",
+        rotation: "-6 190 -6",
+        destino: "../public/images/3.jpg",
+      },
+    ],
+  },
+  "5.jpg": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-15.999 -3.232 -1.291",
+        rotation: "-7.824 -90 -4.802",
+        destino: "../public/images/6.jpg",
+      },
+      {
+        id: "seta-2",
+        position: "5.8 -1.1 6.1",
+        rotation: "-6 90 -6",
         destino: "../public/images/4.jpg",
       },
     ],
   },
+  "6.jpg": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-3.999 -0.28 11",
+        rotation: "-20 13.580 -10",
+        destino: "../public/images/escada_cima.JPG",
+      },
+      {
+        id: "seta-2",
+        position: "-7.1 -1.1 -4.6",
+        rotation: "-6 -90 -6",
+        destino: "../public/images/5.jpg",
+      },
+    ],
+  },
+  "escada_cima.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "2.5 -0.3 10",
+        rotation: "-7.824 40 -4.802",
+        destino: "../public/images/honest.JPG",
+      },
+      {
+        id: "seta-2",
+        position: "0 -3.8 9.3",
+        rotation: "10 40 10",
+        destino: "../public/images/6.JPG",
+      }
+    ],
+  },
+  "honest.JPG": {
+    "setas": [
+      {
+        id: "seta-1",
+        position: "-4.3 -1.4 12",
+        rotation: "-7.824 13.580 -4.802",
+        destino: "../public/images/sala_EC.JPG"
+      },
+      {
+        id: "seta-2",
+        position: "8.3 -1.7 -10",
+        rotation: "-7.824 200 -4.802",
+        destino: "../public/images/sala_SI.JPG"
+      },
+      {
+        id: "seta-3",
+        position: "4.4 -1.3 -9.5",
+        rotation: "0 200 0",
+        destino: "../public/images/sala_CC.JPG"
+      },
+      {
+        id: "seta-4",
+        position: "-0.171 -1.6 12",
+        rotation: "-7.824 60 -4.802",
+        destino: "../public/images/sala_ES.JPG"
+      },
+      {
+        id: "seta-5",
+        position: "-4 -2 24",
+        rotation: "-5 30 -5",
+        destino: "../public/images/escada_cima.JPG",
+      },
+      {
+        id: "seta-6",
+        position: "6.3 -0.8 6.8",
+        rotation: "-10 90 -10",
+        destino: "../public/images/lab.JPG",
+      }
+    ],
+  },
+  "sala_SI.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "8.5 -3.232 -10",
+        rotation: "-7.824 180 -4.802",
+        destino: "../public/images/honest.JPG",
+      },
+    ],
+  },
+  "sala_ES.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-16 -0.8 -13",
+        rotation: "2 -70 -6",
+        destino: "../public/images/honest.JPG",
+      },
+    ],
+  },
+  "sala_EC.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "-14.2 -1.4 -0.6",
+        rotation: "0 -45 -8",
+        destino: "../public/images/honest.JPG",
+      },
+    ],
+  },
+  "sala_CC.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "7 -3.632 -11",
+        rotation: "-7.824 203 -4.802",
+        destino: "../public/images/honest.JPG",
+      },
+    ],
+  },
+  "lab.JPG": {
+    setas: [
+      {
+        id: "seta-1",
+        position: "7 -0.7 7.7",
+        rotation: "-7 90 -7",
+        destino: "../public/images/honest.JPG",
+      },
+    ],
+  }
 };

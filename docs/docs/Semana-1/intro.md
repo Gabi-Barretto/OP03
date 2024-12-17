@@ -1,7 +1,8 @@
 ---
+id: semana-1
+slug: /
 title: Introdução
 sidebar_position: 1
-slug: /
 ---
 
 # Guia Virtual da Faculdade

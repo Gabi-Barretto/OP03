@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const dotenv = require('dotenv');
 const imageRoutes = require('./routes/imageRoutes');
 const { syncLocalImagesWithSupabase } = require('./services/s3Service');
@@ -10,6 +11,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve static files (HTML, CSS, JS, etc.) from the "public" directory
+app.use(express.static(path.join(__dirname, '../frontend')));
+app.use("/public", express.static(path.join(__dirname, '../public')));
+
+
+// Handle the root request to serve the main HTML page
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, '../frontend', 'index.html'));  // Update with your main HTML file name
+});
 
 app.use('/api', imageRoutes);
 
