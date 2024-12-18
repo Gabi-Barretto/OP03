@@ -108,7 +108,6 @@ const uploadToSupabaseS3 = async (bucket, fileName, filePath) => {
   await s3Client.send(new PutObjectCommand(params));
 };
 ```
-
 ---
 
 ### **5. Benefícios Consolidativos**
@@ -123,7 +122,39 @@ const uploadToSupabaseS3 = async (bucket, fileName, filePath) => {
 
 ---
 
-### **6. Próximos Passos**
+### **6. Corte vertical**
+
+#### ** Assets utilizados **
+
+##### Setas
+
+As setas servem para direcionar quais os possíveis caminhos do usuário a partir do ponto no qual ele se encontra. Caso esteja usando sem o óculos VR, basta clicar nas setas com o mouse que o jogador passa para a próxima cena. Com o óculos VR, o jogador pode direcionar seu cursor até a seta e clicar para realizar essa ação.
+
+##### Cubo
+
+Os cubos, uma referência a franquia de jogos Super Mario Bros, ficam em algumas cenas ao longo do percurso, aquelas que representam salas de cada um dos cursos da faculdade. Ao clicar nela, o jogador faz com que um modal apareça em sua frente com informações do curso, sendo elas o nome, uma breve descrição e alguns links para projetos já realizados por alunos desse curso.
+
+##### Controle de som
+
+na parte inferior direita do campo de visão, o jogador tem acesso a um controle dos sons da experiência imersiva. nee, o jogador pode ajustar definições sobre música e narração do percurso. Dentre as funcionalidades, pode-se destacar os botões de mute, tanto para narração quanto para música de fundo.
+
+#### ** Demonstração das mecânicas **
+
+##### Setas
+
+![Gif demonstração seta](./gif/seta.png)
+
+No gif, é possível ver o jogador utilizando as setas presentes no mapa para transicionar entre as cenas do tour virtual.
+
+##### Cubo
+
+![Gif demonstração cubo](./gif/modal.png)
+
+O gif acima mostra o jogador abrindo um modal após clicar em um dos cubos.
+ 
+---
+
+### **7. Próximos Passos**
 
 1. **Frontend:**
    - Adicionar indicadores visuais para setas e boxes clicáveis.
