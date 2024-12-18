@@ -138,7 +138,15 @@ Os cubos, uma referência a franquia de jogos Super Mario Bros, ficam em algumas
 
 na parte inferior direita do campo de visão, o jogador tem acesso a um controle dos sons da experiência imersiva. nee, o jogador pode ajustar definições sobre música e narração do percurso. Dentre as funcionalidades, pode-se destacar os botões de mute, tanto para narração quanto para música de fundo.
 
+#### ** Demonstração das mecânicas **
 
+##### Setas
+
+No vídeo, é possível ver o jogador utilizando as setas presentes no mapa para transicionar entre as cenas do tour virtual.
+
+##### Cubo
+
+O vídeo acima mostra o jogador abrindo um modal após clicar em um dos cubos.
  
 ---
 
