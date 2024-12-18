@@ -177,6 +177,10 @@ Usada amplamente em textos gerais devido à sua neutralidade e excelente legibil
 
 <img width="227" alt="image" src="https://github.com/user-attachments/assets/9b81c449-b0cc-4ee3-bd43-2873b4953ba3" />
 
+#### Paleta de cores
+
+Optamos por uma paleta de cores quentes para transmitir um aspecto mais vivo e envolvente ao nosso jogo. Essa escolha foi inspirada em exemplos de cores vibrantes presentes em jogos como os blocos do Mario que utilizamos para disponibilizar o modal. Nosso objetivo é reforçar o aspecto de gamificação, criando uma experiência visual dinâmica.
+
 
 ### **7. Próximos Passos**
 
