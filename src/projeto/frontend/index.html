@@ -1,30 +1,37 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <html>
-<head>
-  <meta charset="UTF-8" />
-  <title>INTELI - VIRTUAL</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
-  <script src="main.js" type="module" defer></script>
-  <script src="audio.js" defer></script>
-  <link rel="stylesheet" href="./static/styles.css" />
-</head>
-<body>
-  <a-scene>
-    <!-- Imagem 360 inicial -->
-    <a-sky
-      id="sky"
-      src="../public/images/1.jpg"
-      material="shader: standard"
-    ></a-sky>
+  <head>
+    <meta charset="UTF-8" />
+    <title>INTELI - VIRTUAL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="main.js" type="module" defer></script>
+    <script src="audio.js" defer></script>
+    <link rel="stylesheet" href="./static/styles.css" />
+  </head>
+  <body>
+    <a-scene>
+      <!-- Imagem 360 inicial -->
+      <a-sky
+        id="sky"
+        src="../public/images/1.jpg"
+        material="shader: standard"
+      ></a-sky>
 
-    <!-- Câmera com modal fixo -->
-    <a-entity id="camera" camera look-controls position="0 1.6 0">
-      <!-- Modal -->
-      <a-entity id="modal" visible="false" position="0 0 -2">
-        <a-plane color="#fff" width="3.5" height="2.5" material="shader: flat" class="clickable" id="modal-plane">
-          <!-- <a-text
+      <!-- Câmera com modal fixo -->
+      <a-entity id="camera" camera look-controls position="0 1.6 0">
+        <!-- Modal -->
+        <a-entity id="modal" visible="false" position="0 0 -2">
+          <a-plane
+            color="#fff"
+            width="3.5"
+            height="2.5"
+            material="shader: flat"
+            class="clickable"
+            id="modal-plane"
+          >
+            <!-- <a-text
             id="modal-title"
             value=""
             position="0.5 1 0.1"
@@ -41,133 +48,200 @@
             color="#000"
             width="1.4"
           ></a-text> -->
-          <a-image
-          id="modal-image-1"
-          position="0.77 0.35 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-2"
-          position="0.77 -0.05 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-3"
-          position="0.77 -0.45 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-4"
-          position="0.77 -0.85 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-5"
-          position="1.27 0.35 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-6"
-          position="1.27 -0.05 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-7"
-          position="1.27 -0.45 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        <a-image
-          id="modal-image-8"
-          position="1.27 -0.85 0.1"
-          width="0.25"
-          height="0.25"
-        ></a-image>
-        </a-plane>
+            <a-image
+              id="modal-image-1"
+              position="0.77 0.35 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-2"
+              position="0.77 -0.05 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-3"
+              position="0.77 -0.45 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-4"
+              position="0.77 -0.85 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-5"
+              position="1.27 0.35 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-6"
+              position="1.27 -0.05 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-7"
+              position="1.27 -0.45 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+            <a-image
+              id="modal-image-8"
+              position="1.27 -0.85 0.1"
+              width="0.25"
+              height="0.25"
+            ></a-image>
+          </a-plane>
+        </a-entity>
+
+        <!-- Audio Controls Entity -->
+        <a-entity id="audio-controls" position="4 -3 -5">
+          <!-- Plane Container -->
+          <a-plane color="#222" width="3" height="1" position="0 0 0"></a-plane>
+
+          <!-- Voice Controls: Label, Mute Button, Volume Up, Volume Down -->
+          <a-entity position="0 0.2 0">
+            <a-text
+              value="Voice"
+              position="-1.3 0 0.01"
+              color="#fff"
+              scale="0.8 0.8 0.8"
+            ></a-text>
+            <a-box
+              id="mute-voice"
+              color="#f55"
+              depth="0.05"
+              width="0.5"
+              height="0.2"
+              position="-0.4 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="Mute"
+              position="-0.45 0 0.04"
+              color="#fff"
+              scale="0.5 0.5 0.5"
+            ></a-text>
+            <a-box
+              id="voice-vol-down"
+              color="#888"
+              depth="0.05"
+              width="0.3"
+              height="0.2"
+              position="0.2 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="-"
+              position="0.15 0 0.04"
+              color="#fff"
+              scale="0.8 0.8 0.8"
+            ></a-text>
+            <a-box
+              id="voice-vol-up"
+              color="#888"
+              depth="0.05"
+              width="0.3"
+              height="0.2"
+              position="0.6 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="+"
+              position="0.55 0 0.04"
+              color="#fff"
+              scale="0.8 0.8 0.8"
+            ></a-text>
+            <a-box
+              id="voice-restart"
+              color="#5f5"
+              depth="0.05"
+              width="0.3"
+              height="0.2"
+              position="1.0 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="Restart"
+              position="0.95 0 0.0"
+              color="#fff"
+              scale="0.5 0.5 0.5"
+            ></a-text>
+          </a-entity>
+
+          <!-- Music Controls: Label, Mute Button, Volume Up, Volume Down -->
+          <a-entity position="0 -0.2 0">
+            <a-text
+              value="Music"
+              position="-1.3 0 0.01"
+              color="#fff"
+              scale="0.8 0.8 0.8"
+            ></a-text>
+            <a-box
+              id="mute-music"
+              color="#55f"
+              depth="0.05"
+              width="0.5"
+              height="0.2"
+              position="-0.4 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="Mute"
+              position="-0.45 0 0.04"
+              color="#fff"
+              scale="0.5 0.5 0.5"
+            ></a-text>
+            <a-box
+              id="music-vol-down"
+              color="#888"
+              depth="0.05"
+              width="0.3"
+              height="0.2"
+              position="0.2 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="-"
+              position="0.15 0 0.04"
+              color="#fff"
+              scale="0.8 0.8 0.8"
+            ></a-text>
+            <a-box
+              id="music-vol-up"
+              color="#888"
+              depth="0.05"
+              width="0.3"
+              height="0.2"
+              position="0.6 0 0.02"
+              class="clickable"
+            ></a-box>
+            <a-text
+              value="+"
+              position="0.55 0 0.04"
+              color="#fff"
+              scale="0.8 0.8 0.8"
+            ></a-text>
+          </a-entity>
+        </a-entity>
       </a-entity>
-      
-      <!-- Som estático dentro da câmera -->
-      <a-entity position="2 -1 -2">
-        <!-- Fundo do som -->
-        <a-plane 
-        position="-0.01 -0.15 0.001"
-        width="1.8"
-        height="0.8"
-        color="#d3d3d3"
-        material="side: double"
-        rounded="radius: 0.2">
-        </a-plane>
 
-        <!-- Botões de estilo (Jazz, Eletrônica, Rock) -->
-        <a-plane 
-          position="-0.5 0.05 0.01"
-          width="0.4"
-          height="0.2"
-          color="#000"
-          class="clickable"
-          id="jazz-button">
-          <a-text value="Jazz" color="#fff" align="center" width="0.8" position="0 0 0.01"></a-text>
-        </a-plane>
-
-        <a-plane 
-          position="0 0.05 0.01"
-          width="0.4"
-          height="0.2"
-          color="#000"
-          class="clickable"
-          id="electronic-button">
-          <a-text value="House" color="#fff" align="center" width="1" position="0 0 0.01"></a-text>
-        </a-plane>
-
-        <a-plane 
-          position="0.5 0.05 0.01"
-          width="0.4"
-          height="0.2"
-          color="#000"
-          class="clickable"
-          id="rock-button">
-          <a-text value="Rock" color="#fff" align="center" width="1" position="0 0 0.01"></a-text>
-        </a-plane>
-
-      <!-- Botão para mutar/desmutar o narrador -->
-      <a-circle 
-        position="-0.3 -0.3 0.01"
-        radius="0.1"
-        color="#1E90FF"
-        class="clickable"
-        id="mute-narrator-button">
-        <a-text value="mutar/desmutar o narrador" color="#000" align="center" width="1" position="0 0.15 0.02"></a-text>
-      </a-circle>
-
-      <!-- Botão para mutar/desmutar a música -->
-      <a-circle 
-        position="0.3 -0.3 0.01"
-        radius="0.1"
-        color="#32CD32"
-        class="clickable"
-        id="mute-music-button">
-        <a-text value="mutar/desmutar o som" color="#000" align="center" width="1" position="0 0.15 0.02"></a-text>
-      </a-circle>
-      
-    </a-entity>
-
-    <!-- Cursor VR e Desktop -->
-    <a-entity
-      id="cursor"
-      cursor="rayOrigin:entity; fuse: true; fuseTimeout:1500"
-      raycaster="objects: .clickable"
-      position="0 0 -1"
-      geometry="primitive:sphere; radius:0.005"
-      material="color:#000000; shader: flat; opacity:0.5"
-      line="color: #FF0000; opacity: 0.8">
-    </a-entity>
-    
-  </a-scene>
-</body>
+      <!-- Cursor VR e Desktop -->
+      <a-entity
+        id="cursor"
+        cursor="rayOrigin:entity; fuse: true; fuseTimeout:1500"
+        raycaster="objects: .clickable"
+        position="0 0 -1"
+        geometry="primitive:sphere; radius:0.005"
+        material="color:#000000; shader: flat; opacity:0.5"
+        line="color: #FF0000; opacity: 0.8"
+      >
+      </a-entity>
+    </a-scene>
+  </body>
 </html>
