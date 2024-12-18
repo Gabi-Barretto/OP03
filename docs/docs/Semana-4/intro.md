@@ -154,6 +154,14 @@ O gif acima mostra o jogador abrindo um modal após clicar em um dos cubos.
  
 ---
 
+### **7. Indentidade Visual**
+
+#### LOGO:
+<img width="320" alt="image" src="https://github.com/user-attachments/assets/07abae50-2260-40fd-835c-25076b7aa79f" />
+
+#### Tipografia
+##### Modal
+
 ### **7. Próximos Passos**
 
 1. **Frontend:**
