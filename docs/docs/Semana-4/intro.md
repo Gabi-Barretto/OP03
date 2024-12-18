@@ -160,7 +160,23 @@ O gif acima mostra o jogador abrindo um modal após clicar em um dos cubos.
 <img width="320" alt="image" src="https://github.com/user-attachments/assets/07abae50-2260-40fd-835c-25076b7aa79f" />
 
 #### Tipografia
-##### Modal
+
+Estamos utilizando duas tipografias, selecionadas com base em seus propósitos e adequação ao contexto de uso, especialmente em ambientes de realidade virtual (VR). As escolhas foram fundamentadas na facilidade de leitura, evitando fontes com serifas ou traços desnecessários que poderiam prejudicar a clareza do texto nesses ambientes. 
+
+1. **PermanentMarker**: Utilizada nos modais para reforçar a temática de "lousa", proporcionando um aspecto descontraído e criativo. Está configurada na versão regular, mantendo o estilo manuscrito.
+
+2. **Roboto**: Selecionada para os textos gerais devido à sua alta legibilidade em VR. A ausência de elementos ornamentais e o design simples tornam essa fonte ideal para leitura confortável e acessível.
+
+##### PermanentMarker
+Escolhida para modais que evocam um estilo de escrita manual, remetendo a um quadro branco ou lousa de escrita.
+
+<img width="250" alt="image" src="https://github.com/user-attachments/assets/c874466e-c2a6-4bde-90a6-62eb209ef19f" />
+
+##### Roboto
+Usada amplamente em textos gerais devido à sua neutralidade e excelente legibilidade. É especialmente eficaz em dispositivos VR, onde a clareza visual é essencial.
+
+<img width="227" alt="image" src="https://github.com/user-attachments/assets/9b81c449-b0cc-4ee3-bd43-2873b4953ba3" />
+
 
 ### **7. Próximos Passos**
 
