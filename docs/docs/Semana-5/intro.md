@@ -39,11 +39,24 @@ Na quinta semana, o foco principal foi aprimorar a **usabilidade** e **acessibil
 - **Ambiente Sonoro Agradável**: A equalização de som tornou a experiência auditiva mais agradável, permitindo que narração e trilhas sonoras coexistam de forma equilibrada.
 
 ---
+| **Funcionalidade**                                      | **Tem** | **Não Tem** |
+|---------------------------------------------------------|---------|-------------|
+| Infraestrutura fácil para colocar e tirar foto          | ✔️       |             |
+| Ajuste de setas e objetos dentro da cena via JZone       | ✔️       |             |
+| Infraestrutura para pegar imagens do arquivo do projeto | ✔️       |             |
+| Possibilidade de pegar imagens do Supabase              | ✔️       |             |
+| Lógica para adicionar narração de forma simples         | ✔️       |             |
+| Lógica para adicionar música de forma simples           | ✔️       |             |
+| Controlador para narração e música no canto inferior    | ✔️       |             |
+| Modal de fácil acesso para expansão                     | ✔️       |             |
+| Inclusão dinâmica de links para projetos no modal       | ✔️       |             |
+| Inclusão dinâmica de descrição de projetos no modal     | ✔️       |             |
+---
 
 ### Video demonstrativo
 
 https://www.youtube.com/watch?v=5gj1j51YvxA
-
+---
 ### **Próximos Passos**
 
 1. **Refinar a Acessibilidade**:  
