@@ -29,7 +29,6 @@ Na quinta semana, o foco principal foi aprimorar a **usabilidade** e **acessibil
 
 4. **Testes com Usuários e Feedback**:  
    - Colegas da faculdade experimentaram o tour, fornecendo feedback real sobre navegação, clareza das informações e qualidade da ambientação.  
-   - Esses insights guiarão ajustes futuros, garantindo que o produto final seja mais intuitivo, envolvente e acessível.
 
 ---
 
@@ -38,7 +37,6 @@ Na quinta semana, o foco principal foi aprimorar a **usabilidade** e **acessibil
 - **Navegação Mais Intuitiva**: Os usuários testaram e confirmaram que destacar as setas e animar os blocos facilitou a compreensão de como interagir com a cena.
 - **Informações Relevantes e Centralizadas**: O modal trouxe mais contexto para os cursos, permitindo que os visitantes explorassem os projetos desenvolvidos na faculdade diretamente pelo ambiente virtual.
 - **Ambiente Sonoro Agradável**: A equalização de som tornou a experiência auditiva mais agradável, permitindo que narração e trilhas sonoras coexistam de forma equilibrada.
-- **Feedback Valioso**: A coleta de opiniões dos colegas forneceu dados importantes sobre usabilidade, guiando os próximos passos de desenvolvimento.
 
 ---
 
