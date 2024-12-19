@@ -142,13 +142,13 @@ na parte inferior direita do campo de visão, o jogador tem acesso a um controle
 
 ##### Setas
 
-![Gif demonstração seta](./gif/seta.png)
+![Gif demonstração seta](./gif/seta.gif)
 
 No gif, é possível ver o jogador utilizando as setas presentes no mapa para transicionar entre as cenas do tour virtual.
 
 ##### Cubo
 
-![Gif demonstração cubo](./gif/modal.png)
+![Gif demonstração cubo](./gif/modal.gif)
 
 O gif acima mostra o jogador abrindo um modal após clicar em um dos cubos.
  
