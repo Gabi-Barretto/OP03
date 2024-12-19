@@ -46,6 +46,8 @@ Na quinta semana, o foco principal foi aprimorar a **usabilidade** e **acessibil
 
 1. **Refinar a Acessibilidade**:  
    - Ajustar tamanho de fonte, contrastes e disposições visuais para que o conteúdo seja compreensível em diferentes distâncias e ângulos de visão em VR.
+   - Ajustar elementos na cena. Para que sua dispocição e usuabilidade fiquem mais claros e imersivos.
+   - Melhorar o funcionamento do cursor VR de maneria que seja desvinculado a camera, permitindo au usúario maior liberdade para suas interações.
 
 2. **Integrações Adicionais**:  
    - Considerar mais ferramentas de acessibilidade, como legendas automáticas para áudios e integração ainda mais profunda com a tradução em Libras.
