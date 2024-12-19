@@ -40,6 +40,10 @@ Na quinta semana, o foco principal foi aprimorar a **usabilidade** e **acessibil
 
 ---
 
+### Video demonstrativo
+
+https://www.youtube.com/watch?v=5gj1j51YvxA
+
 ### **Próximos Passos**
 
 1. **Refinar a Acessibilidade**:  
@@ -54,6 +58,8 @@ Na quinta semana, o foco principal foi aprimorar a **usabilidade** e **acessibil
    - Criar um canal de coleta de feedback dentro do próprio ambiente virtual, facilitando o registro de opiniões e sugestões pelos usuários.
 
 ---
+
+
 
 Com as melhorias na interação visual, conteúdo informativo, equalização de áudio e testes práticos com usuários, a quinta semana avançou significativamente na criação de um ambiente VR mais coerente, intuitivo e imersivo. Essas atualizações colocam o projeto mais próximo de uma versão final refinada, que ofereça uma experiência acessível e envolvente a todos os visitantes do tour virtual da faculdade.
 
